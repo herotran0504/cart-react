@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/order_confirmation.css'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import {Link} from "react-router-dom";
 
 export const OrderConfirmationPage = () => {
     const orderId = "11234556423146230";
@@ -17,8 +18,8 @@ export const OrderConfirmationPage = () => {
                     <span className="order-number-value">{orderId}</span>
                 </div>
                 <p className="order-details">You’ll receive an email confirming your order details</p>
-                <a href="#" className="track-order">Track your order</a>
-                <a href="#" className="back-to-home">Back to home</a>
+                <Link to="/orders" className="track-order">Track your order</Link>
+                <Link to="/" className="back-to-home">Back to home</Link>
             </main>
             <Footer/>
         </div>

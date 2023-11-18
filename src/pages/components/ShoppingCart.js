@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import CartService from '../../services/CartService';
-import ProductItem from './ProductItem';
+import CartLineItem from './CartLineItem';
 import '../../styles/shopping-cart.css';
 
 const ShoppingCart = () => {
     const dispatch = useDispatch();
     //const cart = useSelector(state => state.cart);
     const cart = {
-        cartId: "Cart_123321123", items: [
+        cartId: "Cart_123321123",
+        items: [
             {
                 product: {
                     productNumber: "ABX12232131313",
@@ -69,7 +70,7 @@ const ShoppingCart = () => {
 
     return (
         <div className="shopping-cart">
-            <div className="container">
+            <div className="cart-container">
                 <h2>Shopping Cart</h2>
 
                 {cartItems.length === 0 ? (
@@ -88,10 +89,11 @@ const ShoppingCart = () => {
                             </div>
 
                             {cartItems.map(item => (
-                                <ProductItem
+                                <CartLineItem
                                     key={item.product.productNumber}
                                     item={item}
-                                    onQuantityChange={handleQuantityChange}
+                                    increaseQuantity={handleQuantityChange}
+                                    decreaseQuantity={handleQuantityChange}
                                     onRemoveItem={handleRemoveItem}
                                 />
                             ))}
@@ -107,8 +109,8 @@ const ShoppingCart = () => {
                             </div>
                         </div>
 
-                        <div className="checkout-actions">
-                            <button onClick={() => alert('coming soon :)')}>Proceed to Checkout</button>
+                        <div className="cart-checkout-actions">
+                            <button className="cart-checkout" onClick={() => alert('coming soon :)')}>Proceed to Checkout</button>
                         </div>
                     </div>
                 )}

@@ -38,8 +38,22 @@
 }
 
 .cover-medium {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.cover-small {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.cover-tiny {
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -61,6 +75,15 @@ button {
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+.title {
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    align-self: center;
+    margin-top: 36px;
+    white-space: nowrap;
+    font: 500 24px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 /* enable to debug css*/

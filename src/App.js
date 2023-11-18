@@ -19,7 +19,7 @@ function App() {
                 <Route exact path="/productDetails" element={<ProductDetailsPage/>}/>
                 <Route exact path="/orders" element={<OrderListingPage/>}/>
                 <Route exact path="/carts" element={<CartPage/>}/>
-                <Route exact path="/orderConfirmation" element={<OrderConfirmationPage/>}/>
+                <Route exact path="/order-confirmation" element={<OrderConfirmationPage/>}/>
                 <Route exact path="/search" element={<SearchPage/>}/>
             </Routes>
         </BrowserRouter>
