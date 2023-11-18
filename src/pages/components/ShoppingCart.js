@@ -9,9 +9,30 @@ const ShoppingCart = () => {
     //const cart = useSelector(state => state.cart);
     const cart = {
         cartId: "Cart_123321123", items: [
-            {product: {productNumber: "ABX12232131313", productName: "Apple iPad Pro 2", productPrice: 1260.03}, quantity: 1},
-            {product: {productNumber: "ABX12232131313", productName: "Apple iPhone 15 ProMax", productPrice: 1260.03}, quantity: 2},
-            {product: {productNumber: "ABX12232131313", productName: "Apple iPhone 15 Pro", productPrice: 1260.03}, quantity: 2}
+            {
+                product: {
+                    productNumber: "ABX12232131313",
+                    productName: "Apple iPad Pro 2",
+                    productPrice: 1260.03,
+                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6559/6559236_sd.jpg'
+                }, quantity: 1
+            },
+            {
+                product: {
+                    productNumber: "ABX12232131313",
+                    productName: "Apple iPhone 15 ProMax",
+                    productPrice: 1260.03,
+                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6539/6539915_sd.jpg'
+                }, quantity: 2
+            },
+            {
+                product: {
+                    productNumber: "ABX12232131313",
+                    productName: "Apple iPhone 15 Pro",
+                    productPrice: 1260.03,
+                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6543/6543740cv17d.jpg'
+                }, quantity: 2
+            }
         ],
         total: 6300
     }
@@ -57,8 +78,9 @@ const ShoppingCart = () => {
                     <div>
                         <div className="cart-items">
                             <div className="cart-item header">
-                                <div>Product Number</div>
-                                <div>Product Name</div>
+                                <div>Image</div>
+                                <div>Number</div>
+                                <div>Name</div>
                                 <div>Price</div>
                                 <div>Quantity</div>
                                 <div>Amount</div>
@@ -78,9 +100,10 @@ const ShoppingCart = () => {
                                 <div></div>
                                 <div></div>
                                 <div></div>
+                                <div></div>
+                                <div></div>
                                 <div><h3>Total:</h3></div>
                                 <div><h3>${cart.total}</h3></div>
-                                <div></div>
                             </div>
                         </div>
 
