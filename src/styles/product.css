@@ -1,0 +1,20 @@
+.product-item {
+    padding: 32px;
+}
+.container {
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.star{
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    background-color: gold;
+}
