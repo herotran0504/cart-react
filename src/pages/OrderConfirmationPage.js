@@ -1,11 +1,14 @@
 import React from 'react';
 import '../styles/order_confirmation.css'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const OrderConfirmationPage = () => {
     const orderId = "11234556423146230";
     return (
-        <>
-            <main className="main-container">
+        <div>
+            <Header/>
+            <main className="container">
                 <img className="image-wrapper" alt=""/>
                 <h2 className="title">Your order was successful</h2>
                 <p className="description">Thanks for your purchase!</p>
@@ -17,6 +20,7 @@ export const OrderConfirmationPage = () => {
                 <a href="#" className="track-order">Track your order</a>
                 <a href="#" className="back-to-home">Back to home</a>
             </main>
-        </>
+            <Footer/>
+        </div>
     );
 }

@@ -1,4 +1,6 @@
-.main-container {
+.container {
+    padding-top: 32px;
+    padding-bottom: 32px;
     align-items: center;
     display: flex;
     flex-direction: column;
