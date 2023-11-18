@@ -1,0 +1,117 @@
+.main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-feature-settings: "clig" off, "liga" off;
+    align-self: center;
+    margin-top: 36px;
+    white-space: nowrap;
+    font: 500 24px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .title {
+        white-space: initial;
+    }
+}
+
+.description {
+    color: #000;
+    font-feature-settings: "clig" off, "liga" off;
+    align-self: center;
+    margin-top: 40px;
+    font: 600 36px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .description {
+        max-width: 100%;
+    }
+}
+
+.order-number {
+    color: #000;
+    font-feature-settings: "clig" off, "liga" off;
+    align-self: center;
+    margin-top: 40px;
+    white-space: nowrap;
+    font: 500 18px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .order-number {
+        white-space: initial;
+    }
+}
+
+.order-number-label {
+    color: rgba(115, 115, 115, 1);
+}
+
+.order-number-value {
+    color: rgba(0, 0, 0, 1);
+}
+
+.order-details {
+    font-feature-settings: "clig" off, "liga" off;
+    align-self: center;
+    margin-top: 14px;
+    font: 500 18px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .order-details {
+        max-width: 100%;
+    }
+}
+
+.track-order {
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #0b8ba6;
+    align-self: center;
+    margin-top: 43px;
+    width: 100%;
+    max-width: 363px;
+    padding: 10px 20px;
+    font: 500 14px/20px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .track-order {
+        white-space: initial;
+        margin-top: 40px;
+    }
+}
+
+.back-to-home {
+    text-align: center;
+    align-self: center;
+    white-space: nowrap;
+    margin: 28px 0 10px;
+    font: 500 14px/20px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+    .back-to-home {
+        white-space: initial;
+    }
+}
+
+img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 172px;
+    overflow: hidden;
+    align-self: center;
+    max-width: 100%;
+    background: url("../assets/ic_check_circle.png");
+}
