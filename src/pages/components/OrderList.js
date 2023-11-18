@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/orders.css';
-import OrderListItem from "./OrderLineItem";
+import OrderListItem from "./OrderListItem";
 
 const OrderList = () => {
     const orders = [{

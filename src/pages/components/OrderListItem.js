@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/orders.css';
 import {Link} from "react-router-dom";
 
-const OrderLineItem = ({order}) => {
+const OrderListItem = ({order}) => {
     const action = "placed" === order.status ? "ship" : "deliver"
     return (
         <div className="order-item total">
@@ -19,4 +19,4 @@ const OrderLineItem = ({order}) => {
     );
 };
 
-export default OrderLineItem;
+export default OrderListItem;
