@@ -3,7 +3,7 @@ import './styles/App.css';
 import {
     CartPage,
     HomePage,
-    OrderConfirmationPage,
+    OrderConfirmationPage, OrderDetailsPage,
     OrderListingPage,
     ProductDetailsPage,
     ProductListingPage,
@@ -19,6 +19,7 @@ function App() {
                 <Route exact path="/productDetails" element={<ProductDetailsPage/>}/>
                 <Route exact path="/orders" element={<OrderListingPage/>}/>
                 <Route exact path="/carts" element={<CartPage/>}/>
+                <Route exact path="/order-details" element={<OrderDetailsPage/>}/>
                 <Route exact path="/order-confirmation" element={<OrderConfirmationPage/>}/>
                 <Route exact path="/search" element={<SearchPage/>}/>
             </Routes>

@@ -1,7 +1,14 @@
 import React from 'react';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import OrderDetails from "./components/OrderDetails";
 
 export const OrderDetailsPage = () => {
     return (
-        <h1>Order details page</h1>
+        <div>
+            <Header/>
+            <OrderDetails/>
+            <Footer/>
+        </div>
     )
 }

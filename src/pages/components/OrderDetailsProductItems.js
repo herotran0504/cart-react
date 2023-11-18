@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/orders.css';
+import '../../styles/order_details.css';
 
-const OrderLineItem_1 = ({item}) => (
+const OrderDetailsProductItems = ({item}) => (
     <div className="order-item">
         <div className="cover">
             <img
@@ -19,4 +19,4 @@ const OrderLineItem_1 = ({item}) => (
     </div>
 );
 
-export default OrderLineItem_1;
+export default OrderDetailsProductItems;

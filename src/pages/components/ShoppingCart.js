@@ -1,12 +1,9 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
 import CartService from '../../services/CartService';
 import CartLineItem from './CartLineItem';
-import '../../styles/shopping-cart.css';
+import '../../styles/shopping_cart.css';
 
 const ShoppingCart = () => {
-    const dispatch = useDispatch();
-    //const cart = useSelector(state => state.cart);
     const cart = {
         cartId: "Cart_123321123",
         items: [
@@ -38,17 +35,6 @@ const ShoppingCart = () => {
         total: 6300
     }
     const cartItems = cart.items;
-
-    useEffect(() => {
-        CartService.getCart()
-            .then(cartData => {
-                cartData.forEach(item => {
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching cart data:', error);
-            });
-    }, [dispatch]);
 
     const handleQuantityChange = (productNumber, newQuantity) => {
         CartService.updateCartItem(productNumber, newQuantity)

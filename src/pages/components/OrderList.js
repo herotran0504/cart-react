@@ -1,13 +1,8 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {fetchOrders} from '../../store/actions/OrderActions';
-import OrderSection from "./OrderSection";
+import React from 'react';
 import '../../styles/orders.css';
 import OrderLineItem from "./OrderLineItem";
 
 const OrderList = () => {
-    const dispatch = useDispatch();
-    //const orders = useSelector(state => state.orders);
     const orders = [{
         orderId: 'Order_1234567890',
         status: 'Placed',
@@ -74,14 +69,10 @@ const OrderList = () => {
         ]
     }]
 
-    useEffect(() => {
-        dispatch(fetchOrders());
-    }, [dispatch]);
-
     return (
         <div className="orders">
             <div className="orders-container">
-                <h2 >Orders</h2>
+                <h2>Orders</h2>
                 {orders.length === 0 ? (
                     <p>You have no order currently</p>
                 ) : (

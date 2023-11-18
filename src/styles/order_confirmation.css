@@ -19,12 +19,6 @@
     font: 600 36px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-@media (max-width: 991px) {
-    .description {
-        max-width: 100%;
-    }
-}
-
 .order-number {
     color: #000;
     font-feature-settings: "clig" off, "liga" off;
@@ -34,11 +28,6 @@
     font: 500 18px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-@media (max-width: 991px) {
-    .order-number {
-        white-space: initial;
-    }
-}
 
 .order-number-label {
     color: rgba(115, 115, 115, 1);
@@ -74,14 +63,7 @@
     width: 100%;
     max-width: 363px;
     padding: 10px 20px;
-    font: 500 14px/20px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
-}
-
-@media (max-width: 991px) {
-    .track-order {
-        white-space: initial;
-        margin-top: 40px;
-    }
+    font: 500 14px/20px Roboto, Roboto, Helvetica, sans-serif;
 }
 
 .back-to-home {
@@ -92,18 +74,11 @@
     font: 500 14px/20px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-@media (max-width: 991px) {
-    .back-to-home {
-        white-space: initial;
-    }
-}
-
 .image-wrapper {
     aspect-ratio: 1;
     object-fit: contain;
     object-position: center;
     width: 172px;
-    overflow: hidden;
     align-self: center;
     max-width: 100%;
     background: url("../assets/ic_check_circle.png");

@@ -1,3 +1,16 @@
+.orders {
+    padding: 32px;
+    align-items: center;
+}
+
+.orders-container {
+    padding: 12px;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
 .orders-details {
     padding: 32px;
     align-items: center;
@@ -23,7 +36,7 @@
 
 .order-item {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
