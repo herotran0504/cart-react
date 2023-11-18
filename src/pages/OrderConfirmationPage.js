@@ -9,7 +9,7 @@ export const OrderConfirmationPage = () => {
     return (
         <div>
             <Header/>
-            <main className="container">
+            <main className="confirmation-container">
                 <img className="image-wrapper" alt=""/>
                 <h2 className="title">Your order was successful</h2>
                 <p className="description">Thanks for your purchase!</p>
