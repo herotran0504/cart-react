@@ -30,25 +30,25 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.order-items {
+.order-details-items {
     margin-top: 10px;
 }
 
-.order-item {
+.order-details-item {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
     font-size: 14px;
 }
 
-.order-item.cover {
+.order-details-item.cover {
     align-content: center;
     align-items: center;
 }
 
-.order-item.header {
+.order-details-item.header {
     align-items: center;
     text-align: center;
     font-weight: bold;
@@ -56,22 +56,22 @@
     border-bottom: 1px solid #333;
 }
 
-.order-item.total {
+.order-details-item.total {
     text-align: center;
     align-items: center;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.order-item.content {
+.order-details-item.content {
     text-align: center;
     align-items: center;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.order-price,
-.order-quantity {
+.order-details-price,
+.order-details-quantity {
     text-align: center;
     align-items: center;
 }

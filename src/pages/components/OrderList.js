@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/orders.css';
-import OrderLineItem from "./OrderLineItem";
+import OrderListItem from "./OrderLineItem";
 
 const OrderList = () => {
     const orders = [{
@@ -89,7 +89,7 @@ const OrderList = () => {
                         <div>
                             <div>
                                 {orders.map(order => (
-                                    <OrderLineItem
+                                    <OrderListItem
                                         key={order.orderId}
                                         order={order}
                                     />

@@ -43,8 +43,8 @@ const OrderDetails = () => {
             <div className="order-details-container">
                 <div className="order-details-card">
                     <h2>Order Summary</h2>
-                    <div className="order-items">
-                        <div className="order-item header">
+                    <div className="order-details-items">
+                        <div className="order-details-item header">
                             <div>Order Id</div>
                             <div>Status</div>
                             <div>Total</div>
@@ -58,8 +58,8 @@ const OrderDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="order-items">
-                        <div className="order-item header">
+                    <div className="order-details-items">
+                        <div className="order-details-item header">
                             <div>Image</div>
                             <div>Number</div>
                             <div>Name</div>
@@ -74,7 +74,7 @@ const OrderDetails = () => {
                             />
                         ))}
 
-                        <div className="order-item total">
+                        <div className="order-details-item total">
                             <div></div>
                             <div></div>
                             <div></div>

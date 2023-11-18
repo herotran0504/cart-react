@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../styles/orders.css';
+import {Link} from "react-router-dom";
 
 const OrderLineItem = ({order}) => {
     const action = "placed" === order.status ? "ship" : "deliver"
     return (
         <div className="order-item total">
-            <div>{order.orderId}</div>
+            <div><Link to="/order-details">{order.orderId}</Link></div>
             <div>{order.items.length}</div>
             <div>{order.status}</div>
             <div>{order.total}</div>

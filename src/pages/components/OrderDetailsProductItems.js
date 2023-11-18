@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/order_details.css';
 
 const OrderDetailsProductItems = ({item}) => (
-    <div className="order-item">
+    <div className="order-details-item">
         <div className="cover">
             <img
                 className="cover-tiny"
@@ -11,11 +11,11 @@ const OrderDetailsProductItems = ({item}) => (
         </div>
         <div>{item.product.productNumber}</div>
         <div>{item.product.productName}</div>
-        <div className="order-price">${item.product.productPrice.toFixed(2)}</div>
-        <div className="order-quantity">
+        <div className="order-details-price">${item.product.productPrice.toFixed(2)}</div>
+        <div className="order-details-quantity">
             <b> {item.quantity} </b>
         </div>
-        <div className="order-price">${(item.product.productPrice * item.quantity).toFixed(2)}</div>
+        <div className="order-details-price">${(item.product.productPrice * item.quantity).toFixed(2)}</div>
     </div>
 );
 
