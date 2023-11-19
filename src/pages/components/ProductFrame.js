@@ -1,7 +1,7 @@
 import Product from "./Product";
 import "../../styles/productframe.css"
 
-const ProductFrame = ({itemList, onPrevious, onNext, itemClick}) => {
+const ProductFrame = ({itemList, onPrevious, onNext}) => {
     // console.log(itemList);
     return (
         <div className="product-frame">
@@ -11,7 +11,7 @@ const ProductFrame = ({itemList, onPrevious, onNext, itemClick}) => {
                 </li>
                 {itemList.map((productItem) => (
                     <li key={productItem.productNumber}>
-                        <Product productItem={productItem} itemClick={itemClick}/>
+                        <Product productItem={productItem}/>
                     </li>
                 ))
                 }

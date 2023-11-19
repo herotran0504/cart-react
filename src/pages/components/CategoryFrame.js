@@ -2,7 +2,6 @@ import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import ProductFrame from "./ProductFrame";
-import {fetchProducts} from "../../store/actions/ProductActions"
 import {ProductService} from "../../services/ProductService";
 
 
@@ -89,9 +88,7 @@ const CategoryFrame = ({categoryName}) => {
             ]
         }
     ]
-    const handleItemClick = (e) => {
-        navigate("/productDetails");
-    }
+
     const handleNextCLick = () => {
         alert("Next coming soon :)");
     }
@@ -101,8 +98,7 @@ const CategoryFrame = ({categoryName}) => {
     return (
         <div className="category-frame">
             <h3>{categoryName}</h3>
-            <ProductFrame itemList={productItemList} onPrevious={handlePreviousClick} onNext={handleNextCLick}
-                          itemClick={handleItemClick}/>
+            <ProductFrame itemList={productItemList} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>
         </div>
     )
 }

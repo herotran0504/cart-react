@@ -1,0 +1,20 @@
+    /* RatingStar.css */
+.rating-star {
+    display: inline-block;
+    font-size: 24px;
+    color: #ffd700; /* Default star color is gold */
+}
+
+.rating-star::before {
+    content: '\2605'; /* Unicode character for a solid star */
+}
+
+/* Add a class to make a half star */
+.rating-star.half::before {
+    content: '\2605\u00BD'; /* Unicode character for a half star */
+}
+
+/* Add a class to make an empty star */
+.rating-star.empty::before {
+    content: '\2606'; /* Unicode character for an empty star */
+}
