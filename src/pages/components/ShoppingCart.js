@@ -1,40 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import CartService from '../../services/CartService';
-import CartLineItem from './CartLineItem';
+import {fetchCart} from "../../store/actions/CartActions";
 import '../../styles/shopping_cart.css';
+import CartLineItem from "./CartLineItem";
 
 const ShoppingCart = () => {
-    const cart = {
-        cartId: "Cart_123321123",
-        items: [
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPad Pro 2",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6559/6559236_sd.jpg'
-                }, quantity: 1
-            },
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPhone 15 ProMax",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6539/6539915_sd.jpg'
-                }, quantity: 2
-            },
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPhone 15 Pro",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6543/6543740cv17d.jpg'
-                }, quantity: 2
-            }
-        ],
-        total: 6300
-    }
-    const cartItems = cart.items;
+
+    const dispatch = useDispatch();
+    const {cart, loading, error} = useSelector(state => state.cart);
+
+    useEffect(() => {
+        dispatch(fetchCart());
+    }, [dispatch]);
 
     const handleQuantityChange = (productNumber, newQuantity) => {
         CartService.updateCartItem(productNumber, newQuantity)
@@ -58,15 +36,13 @@ const ShoppingCart = () => {
         <div className="shopping-cart">
             <div className="cart-container">
                 <h2>Shopping Cart</h2>
-
-                {cartItems.length === 0 ? (
-                    <p>Your cart is empty.</p>
-                ) : (
+                {loading && <p>Loading cart...</p>}
+                {error && <p>Error: {error}</p>}
+                {cart && cart.items.length === 0 ? (<p>Your cart is empty.</p>) : (
                     <div>
                         <div className="cart-items">
                             <div className="cart-item header">
                                 <div>Image</div>
-                                <div>Number</div>
                                 <div>Name</div>
                                 <div>Price</div>
                                 <div>Quantity</div>
@@ -74,7 +50,7 @@ const ShoppingCart = () => {
                                 <div>Action</div>
                             </div>
 
-                            {cartItems.map(item => (
+                            {cart.items.map(item => (
                                 <CartLineItem
                                     key={item.product.productNumber}
                                     item={item}
@@ -89,9 +65,8 @@ const ShoppingCart = () => {
                                 <div></div>
                                 <div></div>
                                 <div></div>
-                                <div></div>
                                 <div><h3>Total:</h3></div>
-                                <div><h3>${cart.total}</h3></div>
+                                <div><h3>${cart.total.toFixed(2)}</h3></div>
                             </div>
                         </div>
 

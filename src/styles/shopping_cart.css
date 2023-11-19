@@ -19,11 +19,18 @@
 
 .cart-item {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
     font-size: 14px;
+}
+
+.cart-name {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cart-item.header {
