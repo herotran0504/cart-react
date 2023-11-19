@@ -14,8 +14,8 @@ const Product = ({productItem}) => {
         <div className="product-item">
             <div className="container" onClick={handleItemClick}>
                 <div>
-                    <img className="image" src={productItem.productCategoryDTO.categoryImage}
-                         alt={productItem.productCategoryDTO.categoryImage}/>
+                    <img className="image" src={productItem.productImage}
+                         alt={productItem.productImage}/>
                 </div>
                 <div>
                     <div/>

@@ -8,18 +8,23 @@ import ReviewFrame from "./components/ReviewFrame";
 export const ProductDetailsPage = (props) => {
     const location = useLocation();
     const productItem = location.state.item;
+    console.log(productItem);
     const handleAddComment = () => {
         alert("Add comment coming soon :)")
+    }
+
+    const handleAddToCart = () => {
+        alert("Add to cart coming soon:)")
     }
     return (
         <div className="product-detail-page">
             <h1>Product details page</h1>
             <div className="container">
                 <div className="product-detail-item">
-                    <ProductDetail productItem={productItem}/>
+                    <ProductDetail productItem={productItem} onAddToCart={handleAddToCart}/>
                 </div>
                 <div className="product-detail-review">
-                    <ReviewFrame reviewList={productItem.reviewList} onAddComment={handleAddComment}/>
+                    <ReviewFrame reviewList={productItem.reviewDTOList} onAddComment={handleAddComment}/>
                 </div>
             </div>
         </div>

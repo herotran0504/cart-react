@@ -2,9 +2,9 @@ import RatingStar from "./RatingStar";
 
 const ProductDetail = ({productItem, onAddToCart}) => {
     const ratingAvg = () => {
-        const numOfRating = productItem.reviewList.length;
-        const totalRating =  productItem.reviewList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
-        return totalRating / numOfRating;
+        const numOfRating = productItem.reviewDTOList.length;
+        const totalRating =  productItem.reviewDTOList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
+        return Math.floor(totalRating / numOfRating + 0.5);
     }
 
     return (
@@ -12,8 +12,8 @@ const ProductDetail = ({productItem, onAddToCart}) => {
             <div className="container">
                 <ul className="list-detail-horizon">
                     <li key="0">
-                        <img className="image" src={productItem.productCategoryDTO.categoryImage}
-                             alt={productItem.productCategoryDTO.categoryImage}/>
+                        <img className="image" src={productItem.productImage}
+                             alt={productItem.productImage}/>
                     </li>
                     <li key="1">
                         <ul className="list-detail-vertical">

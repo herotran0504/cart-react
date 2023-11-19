@@ -12,8 +12,8 @@ export const ProductListingPage = () => {
             <CategoryFrame categoryName={"books"}/>
             <CategoryFrame categoryName={"clothing"}/>
             <CategoryFrame categoryName={"electronic"}/>
-            {/*<CategoryFrame categoryName={"home"}/>*/}
-            {/*<CategoryFrame categoryName={"sports"}/>*/}
+            <CategoryFrame categoryName={"home"}/>
+            <CategoryFrame categoryName={"sports"}/>
             <Footer/>
         </div>
     )

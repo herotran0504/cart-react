@@ -6,7 +6,7 @@ const ProductFrame = ({itemList, onPrevious, onNext}) => {
     return (
         <div className="product-frame">
             <ul className="list-items">
-                <li key="0">
+                <li key={0}>
                     <button onClick={onPrevious}>&lt;</button>
                 </li>
                 {itemList.map((productItem) => (
@@ -15,7 +15,7 @@ const ProductFrame = ({itemList, onPrevious, onNext}) => {
                     </li>
                 ))
                 }
-                <li key="1">
+                <li key={1}>
                     <button onClick={onNext}>&gt;</button>
                 </li>
             </ul>
