@@ -6,6 +6,10 @@ const ProductDetail = ({productItem, onAddToCart}) => {
         const totalRating =  productItem.reviewDTOList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
         return Math.floor(totalRating / numOfRating + 0.5);
     }
+    let rating = ratingAvg();
+    if(!rating) {
+        rating = 0;
+    }
 
     return (
         <div className="product-detail">
@@ -27,7 +31,7 @@ const ProductDetail = ({productItem, onAddToCart}) => {
                                 {productItem.productCategory}
                             </li>
                             <li key="13">
-                                <RatingStar rating={ratingAvg()}/>
+                                <RatingStar rating={rating}/>
                             </li>
                             <li key="14">
                                 {productItem.productDescription}

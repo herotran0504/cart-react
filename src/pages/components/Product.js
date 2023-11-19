@@ -1,6 +1,7 @@
 import "../../styles/product.css"
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import RatingStar from "./RatingStar";
 
 const Product = ({productItem}) => {
     const navigate = useNavigate();
@@ -9,6 +10,15 @@ const Product = ({productItem}) => {
     }
     const handleAddToCart = (e) => {
         alert("Add to cart coming soon :)")
+    }
+    const ratingAvg = () => {
+        const numOfRating = productItem.reviewDTOList.length;
+        const totalRating =  productItem.reviewDTOList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
+        return (Math.floor(totalRating / numOfRating + 0.5));
+    }
+    let rating = ratingAvg();
+    if(!rating) {
+        rating = 0;
     }
     return (
         <div className="product-item">
@@ -21,7 +31,7 @@ const Product = ({productItem}) => {
                     <div/>
                     <div>{productItem.productName}</div>
                     <div>
-                        <div className="star"></div>
+                        <RatingStar rating={rating}/>
                     </div>
                     <div>{productItem.productPrice}</div>
                     <div>

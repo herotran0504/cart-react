@@ -1,16 +1,12 @@
-import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import ProductFrame from "./ProductFrame";
-import {ProductService} from "../../services/ProductService";
 import {fetchProductByCategory} from "../../store/actions/ProductActions";
 
 const NUMBER_OF_ITEM = 4;
 
 const CategoryFrame = ({categoryName}) => {
-    const product = useSelector((state) => state.products);
-    const loading = useSelector((state) => state.loading);
-    const error = useSelector((state) => state.error);
+    const {products, loading, error} = useSelector(state => state.products);
     const [index, setIndex] = useState(0);
     const [isFine, setIsFine] = useState(false);
     const [productList, setProductList] = useState([]);
@@ -18,36 +14,41 @@ const CategoryFrame = ({categoryName}) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchProductByCategory(categoryName));
-    }, [dispatch]);
+    }, [categoryName]);
 
-    if(product && product.products.length > 0) {
+    if(products && products.length > 0) {
         if(!isFine) {
-            console.log(product.products);
             setIsFine(true);
-            if (product.products.length > NUMBER_OF_ITEM) {
-                setProductList(product.products.slice(0, NUMBER_OF_ITEM));
+            if (products.length > NUMBER_OF_ITEM) {
+                setProductList(products.slice(0, NUMBER_OF_ITEM));
                 setIndex(index + NUMBER_OF_ITEM);
             } else {
-                setProductList(product.products);
+                setProductList(products);
             }
         }
     }
 
 
     const handleNextCLick = () => {
-        if (index + NUMBER_OF_ITEM <= product.products.length) {
-            setProductList(product.products.slice(index, index + NUMBER_OF_ITEM));
+        if(!isFine) {
+            return;
+        }
+        if (index + NUMBER_OF_ITEM <= products.products.length) {
+            setProductList(products.slice(index, index + NUMBER_OF_ITEM));
             setIndex(index + NUMBER_OF_ITEM);
         } else {
-            setProductList(product.products.slice(product.products.length - NUMBER_OF_ITEM, product.products.length));
+            setProductList(products.slice(products.length - NUMBER_OF_ITEM, products.length));
         }
     }
     const handlePreviousClick = () => {
+        if(!isFine) {
+            return;
+        }
         if (index - NUMBER_OF_ITEM >= 0) {
-            setProductList(product.products.slice(index - NUMBER_OF_ITEM, index));
+            setProductList(products.slice(index - NUMBER_OF_ITEM, index));
             setIndex(index - NUMBER_OF_ITEM);
         } else {
-            setProductList(product.products.slice(0, NUMBER_OF_ITEM));
+            setProductList(products.slice(0, NUMBER_OF_ITEM));
             setIndex(NUMBER_OF_ITEM);
         }
     }

@@ -1,7 +1,5 @@
 import React from 'react';
 import {useLocation} from "react-router-dom";
-import {ReviewList} from "./components/ReviewList";
-import RatingStar from "./components/RatingStar";
 import ProductDetail from "./components/ProductDetail";
 import ReviewFrame from "./components/ReviewFrame";
 import Header from "./components/Header";
