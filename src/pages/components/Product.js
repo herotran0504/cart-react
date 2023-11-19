@@ -1,11 +1,12 @@
 import "../../styles/product.css"
 
 const Product = ({productItem, itemClick}) => {
+    // console.log(productItem);
     return (
         <div className="product-item">
             <div className="container" onClick={itemClick}>
                 <div>
-                    <img src={productItem.productCategory.categoryImage} alt={productItem.productCategory.categoryImage}/>
+                    <img className="image" src={productItem.productCategoryDTO.categoryImage} alt={productItem.productCategoryDTO.categoryImage}/>
                 </div>
                 <div>
                     <div/>

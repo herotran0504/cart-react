@@ -2,10 +2,11 @@ import Product from "./Product";
 import "../../styles/productframe.css"
 
 const ProductFrame = ({itemList, onPrevious, onNext, itemClick}) => {
+    // console.log(itemList);
     return (
         <div className="product-frame">
             <ul className="list-items">
-                <li>
+                <li key="0">
                     <button onClick={onPrevious}>&lt;</button>
                 </li>
                 {itemList.map((productItem) => (
@@ -14,7 +15,7 @@ const ProductFrame = ({itemList, onPrevious, onNext, itemClick}) => {
                     </li>
                 ))
                 }
-                <li>
+                <li key="1">
                     <button onClick={onNext}>&gt;</button>
                 </li>
             </ul>
