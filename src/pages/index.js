@@ -1,11 +1,19 @@
-export {CartPage} from './CartPage';
 export {HomePage} from './HomePage';
-export {OrderConfirmationPage} from './OrderConfirmationPage';
-export {OrderDetailsPage} from './OrderDetailsPage';
-export {OrderListingPage} from './OrderListingPage';
+export {SearchPage} from './SearchPage';
+/* Admin */
 export {AddProductPage} from './AddProductPage';
 export {EditProductPage} from './EditProductPage';
-export {ProductDetailsPage} from './ProductDetailsPage';
+/* Categories */
 export {ProductLCategoryPage} from './ProductLCategoryPage';
+/* Products */
+export {ProductDetailsPage} from './ProductDetailsPage';
 export {ProductListingPage} from './ProductListingPage';
-export {SearchPage} from './SearchPage';
+/* Cart */
+export {CartPage} from './CartPage';
+/* Checkout */
+export {PersonalInformationPage} from './PersonalInformationPage';
+export {PaymentInformationPage} from './PaymentInformationPage';
+export {OrderConfirmationPage} from './OrderConfirmationPage';
+/* Orders */
+export {OrderDetailsPage} from './OrderDetailsPage';
+export {OrderListingPage} from './OrderListingPage';
