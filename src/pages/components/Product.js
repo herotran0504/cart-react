@@ -11,7 +11,8 @@ const Product = ({productItem}) => {
     const handleItemClick = (e) => {
         navigate("/productDetails", {state: {productNumber: productItem.productNumber}});
     }
-    const handleAddToCart = () => {
+    const handleAddToCart = (e) => {
+        e.stopPropagation();
         dispatch(addCartItem(productItem.productNumber));
     }
   let rating = getAvgRating(productItem);
