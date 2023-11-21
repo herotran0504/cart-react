@@ -14,13 +14,14 @@ import {
     ProductLCategoryPage,
     SearchPage,
 } from "./pages";
+import CategoryFrame from "./pages/components/CategoryFrame";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<HomePage/>}/>
-                <Route exact path="/categories" element={<ProductLCategoryPage/>}/>
+                <Route path="/categories/:categoryName" element={<ProductLCategoryPage/>}/>
                 <Route exact path="/search" element={<SearchPage/>}/>
                 <Route exact path="/addProduct" element={<AddProductPage/>}/>
                 <Route exact path="/editProduct" element={<EditProductPage/>}/>
