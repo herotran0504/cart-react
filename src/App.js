@@ -3,21 +3,17 @@ import './styles/App.css';
 import {
     AddProductPage,
     CartPage,
-    DeleteProductPage,
-    CartPage, EditProductPage,
+    EditProductPage,
     HomePage,
     OrderConfirmationPage,
     OrderDetailsPage,
     OrderListingPage,
+    PaymentInformationPage,
+    PersonalInformationPage,
     ProductDetailsPage,
     ProductLCategoryPage,
     SearchPage,
-    UpdateProductPage,
-    ProductLCategoryPage, ProductListingPage,
-    SearchPage,
 } from "./pages";
-import {PaymentInformationPage} from "./pages/PaymentInformationPage";
-import {PersonalInformationPage} from "./pages/PersonalInformationPage";
 
 function App() {
     return (
