@@ -6,7 +6,7 @@ import RatingStar from "./RatingStar";
 const Product = ({productItem}) => {
     const navigate = useNavigate();
     const handleItemClick = (e) => {
-        navigate("/productDetails", { state: { item:productItem } });
+        navigate("/productDetails", { state: { productNumber:productItem.productNumber } });
     }
     const handleAddToCart = (e) => {
         alert("Add to cart coming soon :)")

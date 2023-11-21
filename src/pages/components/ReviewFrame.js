@@ -1,7 +1,7 @@
 import {ReviewList} from "./ReviewList";
 import {AddReview} from "./AddReview";
 
-const ReviewFrame = ({reviewList, onAddComment}) => {
+const ReviewFrame = ({reviewList, onAddReview}) => {
     return (
         <div className="review-frame">
             <div className="container">
@@ -9,7 +9,7 @@ const ReviewFrame = ({reviewList, onAddComment}) => {
                     <ReviewList reviewList={reviewList}/>
                 </div>
                 <div>
-                    <AddReview onAddComment={onAddComment}/>
+                    <AddReview onAddReview={onAddReview}/>
                 </div>
             </div>
         </div>

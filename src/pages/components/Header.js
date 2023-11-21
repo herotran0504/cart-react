@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import '../../styles/Header.css';
 
 const Header = () => {
+    const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+    const toggleSubMenu = () => {
+        setIsSubMenuOpen(!isSubMenuOpen);
+    };
     return (
         <header className="header">
             <div className="logo">
@@ -12,12 +17,24 @@ const Header = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/categories">Categories</Link></li>
-                    <li><Link to="/products">Products</Link></li>
+                    <li>
+                        <div onClick={toggleSubMenu}>
+                            <span className="header-menu" style={{ cursor: 'pointer' }}>Products</span>
+                            {isSubMenuOpen && (
+                                <ul className="submenu">
+                                    <Link to="/addProduct">Add product</Link>
+                                    <Link to="/deleteProduct">Delete product</Link>
+                                    <Link to="/updateProduct">Update product</Link>
+                                </ul>
+                            )}
+                        </div>
+                    </li>
                     <li><Link to="/carts">Cart</Link></li>
                     <li><Link to="/orders">Orders</Link></li>
                     <li><Link to="#">About Us</Link></li>
                     <li><Link to="#">Contact Us</Link></li>
                     <li><Link to="#">Profile</Link></li>
+                    <li><Link to="/search">Search...</Link></li>
                 </ul>
             </nav>
         </header>

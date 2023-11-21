@@ -1,0 +1,14 @@
+.search-page {
+    padding: 32px;
+}
+.list-items {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+.list-items li{
+    margin-right: 10px; /* Adjust the spacing between items */
+    display: flex;
+    align-items: center;
+}

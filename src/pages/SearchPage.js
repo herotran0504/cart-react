@@ -1,7 +1,13 @@
-import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import {SearchProduct} from "./components/SearchProduct";
 
 export const SearchPage = () => {
     return (
-        <h1>Search page</h1>
+        <div>
+            <Header/>
+            <SearchProduct/>
+            <Footer/>
+        </div>
     )
 }
