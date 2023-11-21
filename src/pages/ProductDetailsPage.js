@@ -33,8 +33,12 @@ export const ProductDetailsPage = () => {
         ProductService.updateProduct(updatedProduct).then(
             data => {
                 setProductItem(data);
+                console.log(data);
             }
-        )
+        ).catch(error => {
+                setError(true);
+                console.error('Error adding review:', error);
+            });
     }
 
     const handleAddToCart = () => {
@@ -45,7 +49,7 @@ export const ProductDetailsPage = () => {
             <Header/>
             <div className="product-detail-page">
                 <h1>Product details page</h1>
-                {loading ? (<p>Loading Product...</p>) : (
+                {loading || error ? (<p>Loading Product...</p>) : (
                     <div className="container">
                         <div className="product-detail-item">
                             <ProductDetail productItem={productItem} onAddToCart={handleAddToCart}/>

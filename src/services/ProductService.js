@@ -1,5 +1,4 @@
 import axios from 'axios';
-import productDetail from "../pages/components/ProductDetail";
 
 const BASE_URL = 'http://localhost:8080';
 
@@ -52,6 +51,15 @@ export const ProductService = {
     updateProduct: async (product) => {
         try {
             const response = await axios.put(`${BASE_URL}/api/products/${product.productNumber}`, product);
+            return response.data;
+        } catch (error) {
+            console.error('Error adding product:', error);
+            throw error;
+        }
+    },
+    deleteProduct: async (productNumber) => {
+        try {
+            const response = await axios.delete(`${BASE_URL}/api/products/${productNumber}`);
             return response.data;
         } catch (error) {
             console.error('Error adding product:', error);

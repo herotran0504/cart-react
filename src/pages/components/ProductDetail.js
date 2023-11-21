@@ -1,15 +1,9 @@
 import RatingStar from "./RatingStar";
+import {getAvgRating} from "../utils/ProductUltils";
 
 const ProductDetail = ({productItem, onAddToCart}) => {
-    const ratingAvg = () => {
-        const numOfRating = productItem.reviewDTOList.length;
-        const totalRating =  productItem.reviewDTOList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
-        return Math.floor(totalRating / numOfRating + 0.5);
-    }
-    let rating = ratingAvg();
-    if(!rating) {
-        rating = 0;
-    }
+
+    let rating = getAvgRating(productItem);
 
     return (
         <div className="product-detail">

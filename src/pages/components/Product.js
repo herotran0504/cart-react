@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import RatingStar from "./RatingStar";
 import {addCartItem} from "../../store/actions/CartActions";
 import {useDispatch} from "react-redux";
+import {getAvgRating} from "../utils/ProductUltils";
 
 const Product = ({productItem}) => {
     const dispatch = useDispatch();
@@ -13,17 +14,7 @@ const Product = ({productItem}) => {
     const handleAddToCart = () => {
         dispatch(addCartItem(productItem.productNumber));
     }
-    const ratingAvg = () => {
-        const numOfRating = productItem.reviewDTOList.length;
-        const totalRating = productItem.reviewDTOList.reduce((acc, curValue) => {
-            return acc + curValue.rating
-        }, 0);
-        return (Math.floor(totalRating / numOfRating + 0.5));
-    }
-    let rating = ratingAvg();
-    if (!rating) {
-        rating = 0;
-    }
+  let rating = getAvgRating(productItem);
     return (
         <div className="product-item">
             <div className="container" onClick={handleItemClick}>

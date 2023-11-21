@@ -2,13 +2,13 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './styles/App.css';
 import {
     AddProductPage,
-    CartPage, DeleteProductPage,
+    CartPage, EditProductPage,
     HomePage,
     OrderConfirmationPage, OrderDetailsPage,
     OrderListingPage,
     ProductDetailsPage,
     ProductLCategoryPage, ProductListingPage,
-    SearchPage, UpdateProductPage,
+    SearchPage,
 } from "./pages";
 
 function App() {
@@ -18,8 +18,7 @@ function App() {
                 <Route exact path="/" element={<HomePage/>}/>
                 <Route exact path="/categories" element={<ProductLCategoryPage/>}/>
                 <Route exact path="/addProduct" element={<AddProductPage/>}/>
-                <Route exact path="/deleteProduct" element={<DeleteProductPage/>}/>
-                <Route exact path="/updateProduct" element={<UpdateProductPage/>}/>
+                <Route exact path="/editProduct" element={<EditProductPage/>}/>
                 <Route exact path="/productDetails" element={<ProductDetailsPage/>}/>
                 <Route exact path="/orders" element={<OrderListingPage/>}/>
                 <Route exact path="/carts" element={<CartPage/>}/>

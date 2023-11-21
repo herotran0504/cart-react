@@ -26,8 +26,7 @@ const Header = () => {
                             {isSubMenuOpen && (
                                 <ul className="submenu">
                                     <Link to="/addProduct">Add product</Link>
-                                    <Link to="/deleteProduct">Delete product</Link>
-                                    <Link to="/updateProduct">Update product</Link>
+                                    <Link to="/editProduct">Edit product</Link>
                                 </ul>
                             )}
                         </div>
