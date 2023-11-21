@@ -20,6 +20,7 @@
 .nav li {
     margin-right: 20px;
 }
+
 .submenu {
     display: flex;
     flex-direction: column;
@@ -31,12 +32,11 @@
     color: #fff;
     font-weight: bold;
 }
+
 .submenu li {
     padding: 8px;
 }
-/*li:hover .submenu {*/
-/*    display: block;*/
-/*}*/
+
 .header-menu {
     text-decoration: none;
     color: #fff;
@@ -47,4 +47,14 @@
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+}
+
+.cart-counter {
+    background: blueviolet;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }

@@ -5,8 +5,11 @@ import ReviewFrame from "./components/ReviewFrame";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {ProductService} from "../services/ProductService";
+import {addCartItem} from "../store/actions/CartActions";
+import {useDispatch} from "react-redux";
 
 export const ProductDetailsPage = () => {
+    const dispatch = useDispatch();
     const location = useLocation();
     const productNumber = location.state.productNumber;
     const [productItem, setProductItem] = useState({});
@@ -35,14 +38,14 @@ export const ProductDetailsPage = () => {
     }
 
     const handleAddToCart = () => {
-        alert("Add to cart coming soon:)")
+        dispatch(addCartItem(productItem.productNumber));
     }
     return (
         <div>
             <Header/>
             <div className="product-detail-page">
                 <h1>Product details page</h1>
-                { loading ? (<p>Loading Product...</p>) : (
+                {loading ? (<p>Loading Product...</p>) : (
                     <div className="container">
                         <div className="product-detail-item">
                             <ProductDetail productItem={productItem} onAddToCart={handleAddToCart}/>

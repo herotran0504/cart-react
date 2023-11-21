@@ -1,23 +1,27 @@
 import "../../styles/product.css"
-import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import RatingStar from "./RatingStar";
+import {addCartItem} from "../../store/actions/CartActions";
+import {useDispatch} from "react-redux";
 
 const Product = ({productItem}) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleItemClick = (e) => {
-        navigate("/productDetails", { state: { productNumber:productItem.productNumber } });
+        navigate("/productDetails", {state: {productNumber: productItem.productNumber}});
     }
-    const handleAddToCart = (e) => {
-        alert("Add to cart coming soon :)")
+    const handleAddToCart = () => {
+        dispatch(addCartItem(productItem.productNumber));
     }
     const ratingAvg = () => {
         const numOfRating = productItem.reviewDTOList.length;
-        const totalRating =  productItem.reviewDTOList.reduce((acc, curValue) => {return acc + curValue.rating}, 0);
+        const totalRating = productItem.reviewDTOList.reduce((acc, curValue) => {
+            return acc + curValue.rating
+        }, 0);
         return (Math.floor(totalRating / numOfRating + 0.5));
     }
     let rating = ratingAvg();
-    if(!rating) {
+    if (!rating) {
         rating = 0;
     }
     return (

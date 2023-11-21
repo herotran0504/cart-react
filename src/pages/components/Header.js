@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import '../../styles/Header.css';
+import {useSelector} from "react-redux";
 
 const Header = () => {
+    const {cart} = useSelector(state => state.cart);
+    const cartItems = cart.items;
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
     const toggleSubMenu = () => {
@@ -19,7 +22,7 @@ const Header = () => {
                     <li><Link to="/categories">Categories</Link></li>
                     <li>
                         <div onClick={toggleSubMenu}>
-                            <span className="header-menu" style={{ cursor: 'pointer' }}>Products</span>
+                            <span className="header-menu" style={{cursor: 'pointer'}}>Products</span>
                             {isSubMenuOpen && (
                                 <ul className="submenu">
                                     <Link to="/addProduct">Add product</Link>
@@ -29,7 +32,7 @@ const Header = () => {
                             )}
                         </div>
                     </li>
-                    <li><Link to="/carts">Cart</Link></li>
+                    <li><Link to="/carts">Cart {cartItems && cartItems.length > 0 ? <span className="cart-counter">{cartItems.length}</span> : ''}</Link></li>
                     <li><Link to="/orders">Orders</Link></li>
                     <li><Link to="#">About Us</Link></li>
                     <li><Link to="#">Contact Us</Link></li>

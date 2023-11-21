@@ -5,38 +5,49 @@ const BASE_URL = 'http://localhost:8080';
 const CartService = {
     getCart: async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/carts`);
-            return response.data;
+            const res = await axios.get(`${BASE_URL}/api/carts`);
+            return res.data;
         } catch (error) {
             console.error('Error getting cart:', error);
             throw error;
         }
     },
 
-    updateCartItem: async (productId, quantity) => {
+    addCartItem: async (productNumber) => {
         try {
-            const response = await axios.put(`${BASE_URL}/api/cart/${productId}`, { quantity });
-            return response.data;
+            const res = await (axios.post(`${BASE_URL}/api/carts`, {productNumber: productNumber}));
+            console.log(res.data);
+            return res.data;
+        } catch (error) {
+            console.error('Error getting cart:', error);
+            throw error;
+        }
+    },
+
+    removeCartItem: async (productNumber) => {
+        try {
+            const res = await axios.delete(`${BASE_URL}/api/carts`, {data: {productNumber: productNumber}});
+            return res.data;
+        } catch (error) {
+            console.error('Error getting cart:', error);
+            throw error;
+        }
+    },
+
+    updateCartItem: async (productNumber, quantity) => {
+        try {
+            const res = await axios.put(`${BASE_URL}/api/cart/${productNumber}`, {quantity});
+            return res.data;
         } catch (error) {
             console.error('Error updating cart item:', error);
             throw error;
         }
     },
 
-    removeCartItem: async (productId) => {
-        try {
-            const response = await axios.delete(`${BASE_URL}/api/cart/${productId}`);
-            return response.data;
-        } catch (error) {
-            console.error('Error removing cart item:', error);
-            throw error;
-        }
-    },
-
     checkout: async (orderData) => {
         try {
-            const response = await axios.post(`${BASE_URL}/api/orders`, orderData);
-            return response.data;
+            const res = await axios.post(`${BASE_URL}/api/orders`, orderData);
+            return res.data;
         } catch (error) {
             console.error('Error during checkout:', error);
             throw error;

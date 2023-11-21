@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import CartService from '../../services/CartService';
-import {fetchCart} from "../../store/actions/CartActions";
+import {fetchCart, removeCartItem} from "../../store/actions/CartActions";
 import '../../styles/shopping_cart.css';
 import CartLineItem from "./CartLineItem";
 
 const ShoppingCart = () => {
-
     const dispatch = useDispatch();
     const {cart, loading, error} = useSelector(state => state.cart);
 
@@ -24,12 +23,7 @@ const ShoppingCart = () => {
     };
 
     const handleRemoveItem = (productNumber) => {
-        CartService.removeCartItem(productNumber)
-            .then(cartData => {
-            })
-            .catch(error => {
-                console.error('Error removing cart data:', error);
-            });
+        dispatch(removeCartItem(productNumber));
     };
 
     return (
@@ -38,7 +32,7 @@ const ShoppingCart = () => {
                 <h2>Shopping Cart</h2>
                 {loading && <p>Loading cart...</p>}
                 {error && <p>Error: {error}</p>}
-                {cart && cart.items.length === 0 ? (<p>Your cart is empty.</p>) : (
+                {!cart || !cart.items || cart.items.length === 0 ? (<p>Your cart is empty.</p>) : (
                     <div>
                         <div className="cart-items">
                             <div className="cart-item header">
