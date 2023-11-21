@@ -1,14 +1,8 @@
-import React, {memo} from "react";
+import React from "react";
 import {ProductRow} from "./ProductRow";
+import {chunkArray} from "../utils/ProductUltils";
 
-const NUMBER_OF_ITEM = 4;
-function chunkArray(array, chunkSize) {
-    const result = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-        result.push(array.slice(i, i + chunkSize));
-    }
-    return result;
-}
+const NUMBER_OF_ITEM = 5;
 export const ProductListing = ({productList}) => {
     let splitProduct = [];
     if(productList && productList.length > 0) {

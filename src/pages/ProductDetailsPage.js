@@ -26,7 +26,7 @@ export const ProductDetailsPage = () => {
             setError(true);
             console.error('Error getProductByProductNumber:', error);
         });
-    }, []);
+    }, [productNumber]);
 
     const handleAddReview = (review) => {
         const updatedProduct = {...productItem, reviewDTOList: productItem.reviewDTOList.concat(review)};
