@@ -3,7 +3,7 @@ export const getAvgRating = (productItem) => {
     const totalRating = productItem.reviewDTOList.reduce((acc, curValue) => {
         return acc + curValue.rating
     }, 0);
-    return Math.floor(totalRating / numOfRating + 0.5);
+    return productItem.reviewDTOList.length > 0 ? Math.floor(totalRating / numOfRating + 0.5) : 0;
 }
 
 export const  chunkArray = (array, chunkSize) => {

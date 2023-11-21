@@ -80,7 +80,7 @@ export const AddProduct = () => {
                         <tr>
                             <td>Quantity:</td>
                             <td>
-                                <input name="quantity" value={product.quantity} onChange={handleFieldChange} placeholder="0.0" required={true} pattern="^[1-9][0-9]*$"/>
+                                <input name="quantity" value={product.quantity} onChange={handleFieldChange} placeholder="0.0" required={true} pattern="^[0-9]*$"/>
                             </td>
                         </tr>
                         </tbody>
