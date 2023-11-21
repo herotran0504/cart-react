@@ -1,36 +1,33 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import CartService from '../../services/CartService';
-import {fetchCart, removeCartItem} from "../../store/actions/CartActions";
-import '../../styles/shopping_cart.css';
+import {decreaseItemQuantity, fetchCart, increaseItemQuantity, removeCartItem} from "../../store/actions/CartActions";
 import CartLineItem from "./CartLineItem";
+import '../../styles/shopping_cart.css';
 
 const ShoppingCart = () => {
     const dispatch = useDispatch();
-    const {cart, loading, error} = useSelector(state => state.cart);
+    const {cart, error} = useSelector(state => state.cart);
 
     useEffect(() => {
         dispatch(fetchCart());
     }, [dispatch]);
 
-    const handleQuantityChange = (productNumber, newQuantity) => {
-        CartService.updateCartItem(productNumber, newQuantity)
-            .then(cartData => {
-            })
-            .catch(error => {
-                console.error('Error changing cart data:', error);
-            });
-    };
-
     const handleRemoveItem = (productNumber) => {
         dispatch(removeCartItem(productNumber));
+    };
+
+    const handleIncreaseQuantity = (productNumber) => {
+        dispatch(increaseItemQuantity(cart.cartId, productNumber));
+    };
+
+    const handleDecreaseQuantity = (productNumber) => {
+        dispatch(decreaseItemQuantity(cart.cartId, productNumber));
     };
 
     return (
         <div className="shopping-cart">
             <div className="cart-container">
                 <h2>Shopping Cart</h2>
-                {loading && <p>Loading cart...</p>}
                 {error && <p>Error: {error}</p>}
                 {!cart || !cart.items || cart.items.length === 0 ? (<p>Your cart is empty.</p>) : (
                     <div>
@@ -48,8 +45,8 @@ const ShoppingCart = () => {
                                 <CartLineItem
                                     key={item.product.productNumber}
                                     item={item}
-                                    increaseQuantity={handleQuantityChange}
-                                    decreaseQuantity={handleQuantityChange}
+                                    increaseQuantity={handleIncreaseQuantity}
+                                    decreaseQuantity={handleDecreaseQuantity}
                                     onRemoveItem={handleRemoveItem}
                                 />
                             ))}

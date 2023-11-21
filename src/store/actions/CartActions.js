@@ -37,3 +37,23 @@ export const removeCartItem = (productNumber) => async (dispatch) => {
         dispatch(fetchCartFailure(error.message));
     }
 };
+
+export const increaseItemQuantity = (cartId, productNumber) => async (dispatch) => {
+    dispatch(fetchCartRequest());
+    try {
+        const cartData = await CartService.increaseItemQuantity(cartId, productNumber);
+        dispatch(fetchCartSuccess(cartData));
+    } catch (error) {
+        dispatch(fetchCartFailure(error.message));
+    }
+};
+
+export const decreaseItemQuantity = (cartId, productNumber) => async (dispatch) => {
+    dispatch(fetchCartRequest());
+    try {
+        const cartData = await CartService.decreaseItemQuantity(cartId, productNumber);
+        dispatch(fetchCartSuccess(cartData));
+    } catch (error) {
+        dispatch(fetchCartFailure(error.message));
+    }
+};

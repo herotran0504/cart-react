@@ -62,6 +62,7 @@ button {
     color: #fff;
     text-align: center;
     white-space: nowrap;
+    opacity: 100%;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
@@ -70,6 +71,10 @@ button {
     align-self: center;
     padding: 10px 20px;
     font: 500 14px/20px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+button:hover {
+    opacity: 80%;
 }
 
 button:disabled {

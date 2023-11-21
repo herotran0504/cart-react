@@ -26,7 +26,8 @@ const CartService = {
 
     removeCartItem: async (productNumber) => {
         try {
-            const res = await axios.delete(`${BASE_URL}/api/carts`, {data: {productNumber: productNumber}});
+            const payload = {productNumber: productNumber};
+            const res = await axios.delete(`${BASE_URL}/api/carts`, {data: payload});
             return res.data;
         } catch (error) {
             console.error('Error getting cart:', error);
@@ -34,9 +35,10 @@ const CartService = {
         }
     },
 
-    updateCartItem: async (productNumber, quantity) => {
+    increaseItemQuantity: async (cartId, productNumber) => {
         try {
-            const res = await axios.put(`${BASE_URL}/api/cart/${productNumber}`, {quantity});
+            const payload = {productNumber: productNumber, quantity: 1, operation: "increase"};
+            const res = await axios.post(`${BASE_URL}/api/carts/${cartId}/items`, payload);
             return res.data;
         } catch (error) {
             console.error('Error updating cart item:', error);
@@ -44,15 +46,17 @@ const CartService = {
         }
     },
 
-    checkout: async (orderData) => {
+    decreaseItemQuantity: async (cartId, productNumber) => {
         try {
-            const res = await axios.post(`${BASE_URL}/api/orders`, orderData);
+            const payload = {productNumber: productNumber, quantity: 1, operation: "decrease"};
+            const res = await axios.post(`${BASE_URL}/api/carts/${cartId}/items`, payload);
             return res.data;
         } catch (error) {
-            console.error('Error during checkout:', error);
+            console.error('Error updating cart item:', error);
             throw error;
         }
     }
+
 };
 
 export default CartService;
