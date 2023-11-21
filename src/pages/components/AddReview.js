@@ -1,9 +1,13 @@
 import {useState} from "react";
+import {StarToRate} from "./StarToRate";
 
 export const AddReview = ({onAddReview}) => {
     const [review, setReview] = useState({comment: "", rating: 0});
     const handleAddReview = () => {
         onAddReview(review);
+    }
+    const handleSetRatingStar = (star) => {
+        setReview({...review, rating: star});
     }
     const handleFieldChange = (e) => {
         setReview({...review, [e.target.name]: e.target.value});
@@ -12,15 +16,7 @@ export const AddReview = ({onAddReview}) => {
         <div className="add-review">
             <div className="container">
                 <div>
-                    Rating:
-                    <select name="rating" onChange={handleFieldChange}>
-                        <option value={0}>0</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                    </select>
+                    <StarToRate handleSetRatingStar={handleSetRatingStar}/>
                 </div>
                 <div>
                     <textarea className="review-text" name="comment" onChange={handleFieldChange}></textarea>

@@ -1,4 +1,4 @@
-    /* RatingStar.css */
+/* RatingStar.css */
 .rating-star {
     display: inline-block;
     font-size: 24px;
@@ -17,4 +17,17 @@
 /* Add a class to make an empty star */
 .rating-star.empty::before {
     content: '\2606'; /* Unicode character for an empty star */
+}
+
+.star-rating-to-rate {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star-to-rate {
+    color: #ccc;
+}
+
+.star-to-rate.filled {
+    color: gold;
 }

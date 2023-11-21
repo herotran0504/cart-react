@@ -19,10 +19,10 @@ const ProductDetail = ({productItem, onAddToCart}) => {
                                 <h3>{productItem.productName}</h3>
                             </li>
                             <li key="11">
-                                {productItem.productPrice}
+                                Price: {productItem.productPrice}
                             </li>
                             <li key="12">
-                                {productItem.productCategory}
+                                Category: {productItem.productCategoryDTO.categoryName}
                             </li>
                             <li key="13">
                                 <RatingStar rating={rating}/>
@@ -31,7 +31,10 @@ const ProductDetail = ({productItem, onAddToCart}) => {
                                 {productItem.productDescription}
                             </li>
                             <li key="15">
-                                <button onClick={onAddToCart}>Add to Cart</button>
+                                In stock: {productItem.quantity}
+                            </li>
+                            <li key="16">
+                                <button onClick={onAddToCart} disabled={productItem.quantity <= 0} >Add to Cart</button>
                             </li>
                         </ul>
                     </li>
