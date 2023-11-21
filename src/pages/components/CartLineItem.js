@@ -15,7 +15,7 @@ const CartLineItem = ({item, decreaseQuantity, increaseQuantity, onRemoveItem}) 
             <div className="cart-price">${product.productPrice.toFixed(2)}</div>
             <div className="cart-quantity-container">
                 <button className="cart-quantity-btn" onClick={() => decreaseQuantity(productNumber)}>-</button>
-                <span><b> {item.quantity} </b></span>
+                <span className="cart-items-quantity"><b>{item.quantity}</b></span>
                 <button className="cart-quantity-btn" onClick={() => increaseQuantity(productNumber)}>+</button>
             </div>
             <div className="cart-price">${(product.productPrice * item.quantity).toFixed(2)}</div>

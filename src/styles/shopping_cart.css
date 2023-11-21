@@ -62,6 +62,11 @@
     align-items: center;
 }
 
+.cart-items-quantity {
+    display: inline-block;
+    min-width: 24px;
+}
+
 .cart-checkout-actions {
     justify-content: space-between;
     margin-top: 20px;
