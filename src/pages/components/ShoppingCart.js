@@ -3,8 +3,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {decreaseItemQuantity, fetchCart, increaseItemQuantity, removeCartItem} from "../../store/actions/CartActions";
 import CartLineItem from "./CartLineItem";
 import '../../styles/shopping_cart.css';
+import {useNavigate} from "react-router-dom";
 
 const ShoppingCart = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {cart, error} = useSelector(state => state.cart);
 
@@ -23,6 +25,10 @@ const ShoppingCart = () => {
     const handleDecreaseQuantity = (productNumber) => {
         dispatch(decreaseItemQuantity(cart.cartId, productNumber));
     };
+
+    const handleCheckoutCart = () => {
+        navigate("/personal-information");
+    }
 
     return (
         <div className="shopping-cart">
@@ -62,7 +68,7 @@ const ShoppingCart = () => {
                         </div>
 
                         <div className="cart-checkout-actions">
-                            <button className="cart-checkout" onClick={() => alert('coming soon :)')}>Proceed to Checkout</button>
+                            <button className="cart-checkout" onClick={handleCheckoutCart}>Proceed to Checkout</button>
                         </div>
                     </div>
                 )}

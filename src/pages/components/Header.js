@@ -20,6 +20,7 @@ const Header = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/categories">Categories</Link></li>
+                    <li><Link to="/search">Search</Link></li>
                     <li>
                         <div onClick={toggleSubMenu}>
                             <span className="header-menu" style={{cursor: 'pointer'}}>Products</span>
@@ -35,8 +36,6 @@ const Header = () => {
                     <li><Link to="/orders">Orders</Link></li>
                     <li><Link to="#">About Us</Link></li>
                     <li><Link to="#">Contact Us</Link></li>
-                    <li><Link to="#">Profile</Link></li>
-                    <li><Link to="/search">Search...</Link></li>
                 </ul>
             </nav>
         </header>
