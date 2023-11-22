@@ -62,7 +62,7 @@ const OrderDetails = () => {
                             />
                         ))}
 
-                        <div className="order-details-item total">
+                        <div className="order-details-item id total">
                             <div></div>
                             <div></div>
                             <div></div>

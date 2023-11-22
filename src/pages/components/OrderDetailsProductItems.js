@@ -10,7 +10,7 @@ const OrderDetailsProductItems = ({item}) => (
                 alt={item.product.name}/>
         </div>
         <div>{item.product.productNumber}</div>
-        <div className="order-details-name">{item.product.productName}</div>
+        <div className="order-details-name name">{item.product.productName}</div>
         <div className="order-details-price">${item.product.productPrice.toFixed(2)}</div>
         <div className="order-details-quantity">
             <b> {item.quantity} </b>

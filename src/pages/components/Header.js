@@ -48,9 +48,9 @@ const Header = () => {
                             <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Categories</span>
                             {isCategoriesMenuOpen && (
                                 <ul className="submenu">
-                                    <Link to="/categories/books">Books</Link>
+                                    <Link to="/categories/Auto">Books</Link>
                                     <Link to="/categories/clothing">Clothing</Link>
-                                    <Link to="/categories/electronic">Electronic</Link>
+                                    <Link to="/categories/electronics">Electronic</Link>
                                     <Link to="/categories/home">Home</Link>
                                     <Link to="/categories/sports">Sports</Link>
                                 </ul>

@@ -25,7 +25,7 @@ const Product = ({productItem}) => {
                 </div>
                 <div>
                     <div/>
-                    <div>{productItem.productName}</div>
+                    <div className="name">{productItem.productName}</div>
                     <div>
                         <RatingStar rating={rating}/>
                     </div>
