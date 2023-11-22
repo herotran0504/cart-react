@@ -2,19 +2,27 @@ import React, {useEffect, useState} from 'react';
 import '../../styles/orders.css';
 import OrderListItem from "./OrderListItem";
 import OrderService from "../../services/OrderService";
-import {useNavigate} from "react-router-dom";
+import {isDelivered} from "../utils/OrderUtils";
 
 const OrderList = () => {
-    const navigate = useNavigate();
     const [orders, setOrders] = useState([]);
+
+    function fetchOrders() {
+        OrderService.getOrders()
+            .then(data => setOrders(data))
+            .catch(e => console.log(e));
+    }
+
     useEffect(() => {
-        OrderService.getOrders().then(data => {
-            console.log("orderList::" + JSON.stringify(data));
-            setOrders(data);
-        });
+        fetchOrders()
     }, []);
-    const onUpdateStatus = (orderId) => {
-        navigate("/order-details", {state: {orderId: orderId}})
+
+    const onUpdateStatus = (orderId, orderStatus) => {
+        if (!isDelivered(orderStatus)) {
+            OrderService.updateOrderStatus(orderId)
+                .then(() => fetchOrders())
+                .catch(e => console.log(e));
+        }
     }
     return (
         <>

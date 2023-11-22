@@ -21,7 +21,6 @@ const OrderService = {
             const res = await axios.post(`${BASE_URL}/api/orders`, payload);
             return res.data;
         } catch (error) {
-            console.error('Error checkout:', error);
             throw error;
         }
     },
@@ -29,10 +28,9 @@ const OrderService = {
     getOrders: async () => {
         try {
             const res = await axios.get(`${BASE_URL}/api/orders`);
-            console.log("orders::" + JSON.stringify(res.data));
             return res.data;
         } catch (error) {
-            return [];
+            throw error;
         }
     },
 
@@ -41,9 +39,18 @@ const OrderService = {
             const res = await axios.get(`${BASE_URL}/api/orders/${orderId}`);
             return res.data;
         } catch (error) {
-            return {};
+            throw error;
         }
-    }
+    },
+
+    updateOrderStatus: async (orderId) => {
+        try {
+            const res = await axios.put(`${BASE_URL}/api/orders/${orderId}`);
+            return res.data;
+        } catch (error) {
+            throw error;
+        }
+    },
 };
 
 export default OrderService;
