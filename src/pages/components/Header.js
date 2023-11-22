@@ -17,10 +17,12 @@ const Header = () => {
     }
     const toggleProductsMenu = () => {
         setIsProductsMenuOpen(!isProductsMenuOpen);
+        setIsCategoriesMenuOpen(false);
     };
 
     const toggleCategoriesMenu = () => {
-        setIsCategoriesMenuOpen(!isCategoriesMenuOpen)
+        setIsCategoriesMenuOpen(!isCategoriesMenuOpen);
+        setIsProductsMenuOpen(false);
     }
     return (
         <header className="header">
