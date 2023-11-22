@@ -14,7 +14,6 @@ import {
     ProductLCategoryPage,
     SearchPage,
 } from "./pages";
-import CategoryFrame from "./pages/components/CategoryFrame";
 
 function App() {
     return (

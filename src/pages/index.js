@@ -7,7 +7,6 @@ export {EditProductPage} from './EditProductPage';
 export {ProductLCategoryPage} from './ProductLCategoryPage';
 /* Products */
 export {ProductDetailsPage} from './ProductDetailsPage';
-export {ProductListingPage} from './ProductListingPage';
 /* Cart */
 export {CartPage} from './CartPage';
 /* Checkout */

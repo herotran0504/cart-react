@@ -21,8 +21,10 @@ const CategoryFrame = ({categoryName}) => {
                 setProducts(data);
                 setLoading(false);
             }
-        )
-    },[]);
+        ).catch(reason => {
+            setError(true);
+        })
+    },[categoryName]);
 
 
 
