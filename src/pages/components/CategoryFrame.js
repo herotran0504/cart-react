@@ -15,9 +15,12 @@ const CategoryFrame = ({categoryName}) => {
 
     useEffect(() => {
         setLoading(true);
+        setIsFine(false);
+        setProducts([]);
         ProductService.getProductByCategory(categoryName).then(
             data => {
                 setProducts(data);
+                console.log(`loading: ${categoryName}`)
                 setLoading(false);
             }
         ).catch(reason => {
@@ -27,7 +30,8 @@ const CategoryFrame = ({categoryName}) => {
 
 
     if (products && products.length > 0) {
-        if (!isFine) {
+        if (!isFine)
+        {
             setIsFine(true);
             if (products.length > NUMBER_OF_ITEM) {
                 setSpitProducts(products.slice(0, NUMBER_OF_ITEM));
@@ -71,7 +75,7 @@ const CategoryFrame = ({categoryName}) => {
 
                 {loading && <p>Loading Product...</p>}
                 {error && <p>Error: {error}</p>}
-                {!isFine ? (<p>Loading Product...</p>) : (<ProductFrame itemList={spitProducts} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>)}
+                {loading ? (<p>Loading Product...</p>) : (<ProductFrame itemList={spitProducts} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>)}
             </div>
         </div>
     )
