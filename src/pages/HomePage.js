@@ -14,10 +14,11 @@ export const HomePage = () => {
     return (
         <div>
             <Header/>
-            <CategoryFrame categoryName={"books"}/>
-            <CategoryFrame categoryName={"clothing"}/>
-            <CategoryFrame categoryName={"electronic"}/>
-            <CategoryFrame categoryName={"home"}/>
+            <CategoryFrame categoryName={"automotive"}/>
+            <CategoryFrame categoryName={"handmade"}/>
+            <CategoryFrame categoryName={"electronics"}/>
+            <CategoryFrame categoryName={"grocery"}/>
+            <CategoryFrame categoryName={"audible"}/>
             <CategoryFrame categoryName={"sports"}/>
             <Footer/>
         </div>
