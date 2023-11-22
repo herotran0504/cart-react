@@ -36,14 +36,16 @@
 
 .order-details-item {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
     align-items: center;
+    grid-template-columns: repeat(6, 1fr);
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
     font-size: 14px;
 }
 
 .order-details-item.cover {
+    width: fit-content;
     align-content: center;
     align-items: center;
 }
@@ -70,6 +72,15 @@
     margin-top: 10px;
 }
 
+.order-details-item div {
+    align-items: center;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-details-cover,
+.order-details-name,
 .order-details-price,
 .order-details-quantity {
     text-align: center;

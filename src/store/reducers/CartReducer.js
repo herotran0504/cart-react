@@ -1,4 +1,4 @@
-import {FETCH_CART_FAILURE, FETCH_CART_REQUEST, FETCH_CART_SUCCESS} from '../actions/CartActions';
+import {CLEAR_CART_REQUEST, FETCH_CART_FAILURE, FETCH_CART_REQUEST, FETCH_CART_SUCCESS} from '../actions/CartActions';
 
 const initialState = {
     cart: {cartId: "", items: [], total: 0.0},
@@ -8,24 +8,14 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CLEAR_CART_REQUEST:
+            return initialState;
         case FETCH_CART_REQUEST:
-            return {
-                ...state,
-                loading: true,
-                error: null,
-            };
+            return {...state, loading: true, error: null};
         case FETCH_CART_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                cart: action.payload,
-            };
+            return {...state, loading: false, cart: action.payload};
         case FETCH_CART_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            };
+            return {...state, loading: false, error: action.payload};
         default:
             return state;
     }

@@ -2,18 +2,19 @@ import React from 'react';
 import '../../styles/orders.css';
 import {Link} from "react-router-dom";
 
-const OrderListItem = ({order}) => {
+const OrderListItem = ({order, onUpdateStatus}) => {
     const action = "placed" === order.status ? "ship" : "deliver"
+    const link = `/order-details/${order.orderId}`;
     return (
         <div className="order-item total">
-            <div><Link to="/order-details">{order.orderId}</Link></div>
+            <div><Link to={link}>{order.orderId}</Link></div>
             <div>{order.items.length}</div>
-            <div>{order.status}</div>
+            <div>{order.orderStatus}</div>
             <div>{order.total}</div>
-            <div>{order.shippingInfo.name}</div>
-            <div>{order.shippingInfo.email}</div>
+            <div>{order.shippingInfoDTO.name}</div>
+            <div>{order.shippingInfoDTO.email}</div>
             <div>
-                <button onClick={() => alert('coming soon')}>{action}</button>
+                <button onClick={() => onUpdateStatus(order.orderId)}>{action}</button>
             </div>
         </div>
     );

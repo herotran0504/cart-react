@@ -1,14 +1,5 @@
 import React from 'react';
-import Header from "./components/Header";
 import ShoppingCart from "./components/ShoppingCart";
-import Footer from "./components/Footer";
+import {PageContainer} from "./components/PageContainer";
 
-export const CartPage = () => {
-    return (
-        <div>
-            <Header/>
-            <ShoppingCart/>
-            <Footer/>
-        </div>
-    )
-}
+export const CartPage = () => <PageContainer title={'Shopping Cart'} component={<ShoppingCart/>}/>

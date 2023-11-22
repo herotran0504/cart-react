@@ -1,14 +1,5 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import {PaymentInformation} from "./components/PaymentInformation";
+import {PageContainer} from "./components/PageContainer";
+import React from "react";
 
-export const PaymentInformationPage = () => {
-    return (
-        <div>
-            <Header/>
-            <PaymentInformation/>
-            <Footer/>
-        </div>
-    )
-
-}
+export const PaymentInformationPage = () => <PageContainer title={'Payment Information'} component={<PaymentInformation/>}/>

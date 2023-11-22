@@ -1,14 +1,5 @@
 import React from 'react';
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import OrderDetails from "./components/OrderDetails";
+import {PageContainer} from "./components/PageContainer";
 
-export const OrderDetailsPage = () => {
-    return (
-        <div>
-            <Header/>
-            <OrderDetails/>
-            <Footer/>
-        </div>
-    )
-}
+export const OrderDetailsPage = () => <PageContainer title={'Order Summary'} component={<OrderDetails/>}/>

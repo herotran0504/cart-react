@@ -1,48 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import OrderDetailsProductItems from "./OrderDetailsProductItems";
 import OrderDetailsSummary from "./OrderDetailsSummary";
 import '../../styles/order_details.css';
+import {useParams} from "react-router-dom";
+import OrderService from "../../services/OrderService";
 
 const OrderDetails = () => {
-    const order = {
-        orderId: 'Order_1234567890',
-        status: 'Placed',
-        createdTime: '12-12-2022',
-        total: 1234.56,
-        shippingInfo: {name: 'Nobody', email: 'nobody@gmail.com'},
-        items: [
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPad Pro 2",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6559/6559236_sd.jpg'
-                }, quantity: 1
-            },
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPhone 15 ProMax",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6539/6539915_sd.jpg'
-                }, quantity: 2
-            },
-            {
-                product: {
-                    productNumber: "ABX12232131313",
-                    productName: "Apple iPhone 15 Pro",
-                    productPrice: 1260.03,
-                    productImage: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6543/6543740cv17d.jpg'
-                }, quantity: 2
-            }
-        ]
-    }
-
+    const {orderId} = useParams();
+    const emptyOrder = {orderId: "", items: [], shippingInfoDTO: {name: "", email: ""}, total: 0.0}
+    const [order, setOrder] = useState(emptyOrder);
+    useEffect(() => {
+        OrderService.getOrder(orderId).then(data => {
+            console.log("order::" + JSON.stringify(data));
+            setOrder(data);
+        });
+    });
     return (
-        <div className="orders-details">
-            <div className="order-details-container">
-                <div className="order-details-card">
-                    <h2>Order Summary</h2>
+        <div>
+            {!order ? (<div/>) : (
+                <div>
                     <div className="order-details-items">
                         <div className="order-details-item header">
                             <div>Order Id</div>
@@ -84,9 +60,9 @@ const OrderDetails = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
-    );
-};
+    )
+}
 
 export default OrderDetails;

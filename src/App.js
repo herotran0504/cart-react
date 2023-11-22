@@ -29,7 +29,7 @@ function App() {
                 <Route exact path="/carts" element={<CartPage/>}/>
                 <Route exact path="/personal-information" element={<PersonalInformationPage/>}/>
                 <Route exact path="/payment-information" element={<PaymentInformationPage/>}/>
-                <Route exact path="/order-details" element={<OrderDetailsPage/>}/>
+                <Route exact path="/order-details/:orderId" element={<OrderDetailsPage/>}/>
                 <Route exact path="/order-confirmation" element={<OrderConfirmationPage/>}/>
             </Routes>
         </BrowserRouter>

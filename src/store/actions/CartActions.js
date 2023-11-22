@@ -1,9 +1,11 @@
 import CartService from "../../services/CartService";
 
+export const CLEAR_CART_REQUEST = 'CLEAR_CART_REQUEST';
 export const FETCH_CART_REQUEST = 'FETCH_CART_REQUEST';
 export const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';
 export const FETCH_CART_FAILURE = 'FETCH_CART_FAILURE';
 
+export const clearCartRequest = () => ({type: CLEAR_CART_REQUEST});
 export const fetchCartRequest = () => ({type: FETCH_CART_REQUEST});
 export const fetchCartSuccess = cartData => ({type: FETCH_CART_SUCCESS, payload: cartData});
 export const fetchCartFailure = error => ({type: FETCH_CART_FAILURE, payload: error});

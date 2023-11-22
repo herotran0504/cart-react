@@ -30,7 +30,15 @@
     font-size: 14px;
 }
 
+.order-item div {
+    align-items: center;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .order-item.cover {
+    width: fit-content;
     align-content: center;
     align-items: center;
 }
@@ -55,10 +63,4 @@
     align-items: center;
     font-weight: bold;
     margin-top: 10px;
-}
-
-.order-price,
-.order-quantity {
-    text-align: center;
-    align-items: center;
 }

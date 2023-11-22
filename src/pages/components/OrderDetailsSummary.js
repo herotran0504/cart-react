@@ -6,10 +6,10 @@ const OrderDetailsSummary = ({order}) => {
     return (
         <div className="order-details-item total">
             <div>{order.orderId}</div>
-            <div>{order.status}</div>
+            <div>{order.orderStatus}</div>
             <div>{order.total}</div>
-            <div>{order.shippingInfo.name}</div>
-            <div>{order.shippingInfo.email}</div>
+            <div>{order.shippingInfoDTO.name}</div>
+            <div>{order.shippingInfoDTO.email}</div>
             <div>
                 <button onClick={() => alert('coming soon')}>{action}</button>
             </div>
