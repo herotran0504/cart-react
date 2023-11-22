@@ -79,6 +79,10 @@ li, select {
     overflow: hidden;
 }
 
+.product-container > div {
+    line-height: 1.5em;
+}
+
 .add-review {
     width: fit-content;
     margin: 0 auto;
