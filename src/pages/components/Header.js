@@ -48,10 +48,11 @@ const Header = () => {
                             <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Categories</span>
                             {isCategoriesMenuOpen && (
                                 <ul className="submenu">
-                                    <Link to="/categories/Auto">Books</Link>
-                                    <Link to="/categories/clothing">Clothing</Link>
-                                    <Link to="/categories/electronics">Electronic</Link>
-                                    <Link to="/categories/home">Home</Link>
+                                    <Link to="/categories/automotive">Automotive</Link>
+                                    <Link to="/categories/handmade">Handmade Products</Link>
+                                    <Link to="/categories/electronics">Electronics</Link>
+                                    <Link to="/categories/audible">Audible & Books</Link>
+                                    <Link to="/categories/grocery">Grocery</Link>
                                     <Link to="/categories/sports">Sports</Link>
                                 </ul>
                             )}
