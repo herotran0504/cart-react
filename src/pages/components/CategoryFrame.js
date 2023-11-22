@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import ProductFrame from "./ProductFrame";
 import {ProductService} from "../../services/ProductService";
+import {upperCaseFirstLetter} from "../utils/ProductUltils";
 
 const NUMBER_OF_ITEM = 4;
 
 const CategoryFrame = ({categoryName}) => {
-    // const {products, loading, error} = useSelector(state => state.products);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -13,7 +13,6 @@ const CategoryFrame = ({categoryName}) => {
     const [isFine, setIsFine] = useState(false);
     const [spitProducts, setSpitProducts] = useState([]);
 
-    // const dispatch = useDispatch();
     useEffect(() => {
         setLoading(true);
         ProductService.getProductByCategory(categoryName).then(
@@ -24,12 +23,11 @@ const CategoryFrame = ({categoryName}) => {
         ).catch(reason => {
             setError(true);
         })
-    },[categoryName]);
+    }, [categoryName]);
 
 
-
-    if(products && products.length > 0) {
-        if(!isFine) {
+    if (products && products.length > 0) {
+        if (!isFine) {
             setIsFine(true);
             if (products.length > NUMBER_OF_ITEM) {
                 setSpitProducts(products.slice(0, NUMBER_OF_ITEM));
@@ -42,7 +40,7 @@ const CategoryFrame = ({categoryName}) => {
 
 
     const handleNextCLick = () => {
-        if(!isFine) {
+        if (!isFine) {
             return;
         }
         if (index + NUMBER_OF_ITEM <= products.length) {
@@ -53,7 +51,7 @@ const CategoryFrame = ({categoryName}) => {
         }
     }
     const handlePreviousClick = () => {
-        if(!isFine) {
+        if (!isFine) {
             return;
         }
         if (index - NUMBER_OF_ITEM >= 0) {
@@ -68,12 +66,12 @@ const CategoryFrame = ({categoryName}) => {
         <div className="category-frame">
             <div className="category-frame-container">
                 <div className="title-left">
-                    <h3>{categoryName}</h3>
+                    <h3>{upperCaseFirstLetter(categoryName)}</h3>
                 </div>
 
                 {loading && <p>Loading Product...</p>}
                 {error && <p>Error: {error}</p>}
-                {!isFine ? (<p>Loading Product...</p>) :(<ProductFrame itemList={spitProducts} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>)}
+                {!isFine ? (<p>Loading Product...</p>) : (<ProductFrame itemList={spitProducts} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>)}
             </div>
         </div>
     )

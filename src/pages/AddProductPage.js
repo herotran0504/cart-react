@@ -1,13 +1,5 @@
 import {AddProduct} from "./components/AddProduct";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import {PageContainer} from "./components/PageContainer";
+import React from "react";
 
-export const AddProductPage = () => {
-    return (
-        <div className="add-product-page">
-            <Header/>
-            <AddProduct/>
-            <Footer/>
-        </div>
-    );
-};
+export const AddProductPage = () => <PageContainer title={'Add New Product'} component={<AddProduct/>}/>

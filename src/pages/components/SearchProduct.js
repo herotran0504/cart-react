@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {ProductService} from "../../services/ProductService";
 import {ProductListing} from "./ProductListing";
+
 export const SearchProduct = () => {
     const initialSearchFields = {
         categoryName: "",
@@ -43,46 +44,44 @@ export const SearchProduct = () => {
         }
     }
     return (
-        <div className="search-page">
-            <div className="container">
-                <form className="search-form container" onSubmit={handleSearch}>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Product price:</td>
-                            <td>
-                                Min: <input name="minPrice" value={searchData.minPrice} onChange={handleFieldChange}
-                                            placeholder="0" required={false}/>
-                                Max: <input name="maxPrice" value={searchData.maxPrice} onChange={handleFieldChange}
-                                            placeholder="0" required={false}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product category:</td>
-                            <td>
-                                <select name="categoryName" value={searchData.categoryName}
-                                        onChange={handleFieldChange}>
-                                    <option key={0} value="">Select category</option>
-                                    <option key={1} value="books">Books</option>
-                                    <option key={2} value="clothing">Clothing</option>
-                                    <option key={3} value="electronic">Electronic</option>
-                                    <option key={4} value="home">Home</option>
-                                    <option key={5} value="sports">Sports</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan={2}>
-                                <button type="submit">Search</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </div>
+        <>
+            <form className="search-form container" onSubmit={handleSearch}>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Product price:</td>
+                        <td>
+                            Min: <input name="minPrice" value={searchData.minPrice} onChange={handleFieldChange}
+                                        placeholder="0" required={false}/>
+                            Max: <input name="maxPrice" value={searchData.maxPrice} onChange={handleFieldChange}
+                                        placeholder="0" required={false}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product category:</td>
+                        <td>
+                            <select name="categoryName" value={searchData.categoryName}
+                                    onChange={handleFieldChange}>
+                                <option key={0} value="">Select category</option>
+                                <option key={1} value="books">Books</option>
+                                <option key={2} value="clothing">Clothing</option>
+                                <option key={3} value="electronic">Electronic</option>
+                                <option key={4} value="home">Home</option>
+                                <option key={5} value="sports">Sports</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2}>
+                            <button type="submit">Search</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
             <div>
-                <ProductListing productList={productList} refresh={refresh}/>
+                {productList && <ProductListing productList={productList} refresh={refresh}/>}
             </div>
-        </div>
+        </>
     )
 }

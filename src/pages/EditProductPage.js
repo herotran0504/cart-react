@@ -1,13 +1,5 @@
 import {EditProduct} from "./components/EditProduct";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import {PageContainer} from "./components/PageContainer";
+import React from "react";
 
-export const EditProductPage = () => {
-    return(
-        <div className="delete-product">
-            <Header/>
-            <EditProduct/>
-            <Footer/>
-        </div>
-    )
-}
+export const EditProductPage = () => <PageContainer title={'Edit Product'} component={<EditProduct/>}/>

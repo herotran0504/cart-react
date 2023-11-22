@@ -1,6 +1,7 @@
 .product-frame {
     padding: 10px;
 }
+
 .list-items-horizon {
     list-style-type: none;
     padding: 0;
@@ -8,7 +9,8 @@
     width: 100%;
     flex-direction: row;
 }
-.list-items-horizon li{
+
+.list-items-horizon li {
     margin-right: 2px; /* Adjust the spacing between items */
     margin-left: 2px; /* Adjust the spacing between items */
     display: flex;

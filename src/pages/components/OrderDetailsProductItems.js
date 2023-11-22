@@ -5,7 +5,7 @@ const OrderDetailsProductItems = ({item}) => (
     <div className="order-details-item">
         <div className="order-details-cover">
             <img
-                className="cover-tiny"
+                className="cover-small"
                 src={item.product.productImage}
                 alt={item.product.name}/>
         </div>

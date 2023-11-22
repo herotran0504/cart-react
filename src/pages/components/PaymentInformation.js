@@ -58,12 +58,12 @@ export const PaymentInformation = () => {
     }
     return (
         <form onSubmit={handleSubmit(handleSubmitCall)}>
-            <p>Name: {userInfo.name}</p>
-            <p>Email: {userInfo.email}</p>
-            <p>Phone: {userInfo.phone}</p>
-            <p>Street: {userInfo.street}</p>
-            <p>City: {userInfo.city}</p>
-            <p>Zip: {userInfo.zip}</p>
+            <p><b>Name</b>: {userInfo.name}</p>
+            <p><b>Email</b>: {userInfo.email}</p>
+            <p><b>Phone</b>: {userInfo.phone}</p>
+            <p><b>Street</b>: {userInfo.street}</p>
+            <p><b>City</b>: {userInfo.city}</p>
+            <p><b>Zip</b>: {userInfo.zip}</p>
 
             <div>
                 <label className="form-label">Card Number</label>

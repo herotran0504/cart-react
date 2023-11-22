@@ -25,11 +25,13 @@
 }
 
 .submenu {
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
     position: absolute;
     list-style: none;
     padding: 10px;
+    line-height: 32px;
     margin-top: 3px; /* Adjust the margin as needed */
     text-decoration: none;
     background-color: #0B8BA6;
@@ -43,6 +45,12 @@
 .nav a {
     text-decoration: none;
     color: #fff;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    color: orange;
     font-weight: bold;
 }
 

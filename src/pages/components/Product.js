@@ -8,19 +8,19 @@ import {getAvgRating} from "../utils/ProductUltils";
 const Product = ({productItem}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleItemClick = (e) => {
+    const handleItemClick = () => {
         navigate("/productDetails", {state: {productNumber: productItem.productNumber}});
     }
     const handleAddToCart = (e) => {
         e.stopPropagation();
         dispatch(addCartItem(productItem.productNumber));
     }
-  let rating = getAvgRating(productItem);
+    let rating = getAvgRating(productItem);
     return (
         <div className="product-item">
-            <div className="container" onClick={handleItemClick}>
+            <div className="product-container" onClick={handleItemClick}>
                 <div>
-                    <img className="image" src={productItem.productImage}
+                    <img className="cover-large" src={productItem.productImage}
                          alt={productItem.productImage}/>
                 </div>
                 <div>
@@ -29,11 +29,10 @@ const Product = ({productItem}) => {
                     <div>
                         <RatingStar rating={rating}/>
                     </div>
-                    <div>{productItem.productPrice}</div>
+                    <div>${productItem.productPrice.toFixed(2)}</div>
                     {productItem.quantity ? <span style={{color: "blue"}}>In Stock</span> : <span style={{color: "red"}}>Out of Stock</span>}
-                    {/*<div>In stock: {productItem.quantity}</div>*/}
                     <div>
-                        <button onClick={handleAddToCart} disabled={productItem.quantity=== 0}>Add to Cart</button>
+                        <button className="primary-button" onClick={handleAddToCart} disabled={productItem.quantity === 0}>Add to Cart</button>
                     </div>
                 </div>
             </div>

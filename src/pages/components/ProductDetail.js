@@ -8,10 +8,10 @@ const ProductDetail = ({productItem, onAddToCart}) => {
 
     return (
         <div className="product-detail">
-            <div className="container">
+            <div className="product-detail-container">
                 <ul className="list-detail-horizon">
                     <li key="0">
-                        <img className="image" src={productItem.productImage}
+                        <img className="cover-large" src={productItem.productImage}
                              alt={productItem.productImage}/>
                     </li>
                     <li key="1">
@@ -35,7 +35,7 @@ const ProductDetail = ({productItem, onAddToCart}) => {
                                 In stock: {productItem.quantity}
                             </li>
                             <li key="16">
-                                <button onClick={onAddToCart} disabled={productItem.quantity <= 0} >Add to Cart</button>
+                                <button className="primary-button" onClick={onAddToCart} disabled={productItem.quantity <= 0} >Add to Cart</button>
                             </li>
                         </ul>
                     </li>

@@ -27,10 +27,10 @@ export const EditProduct = () => {
                 setRating(() => getAvgRating(product));
                 console.log(data)
             }
-        ).catch( reason => {
-                alert("Product not found!")
-                console.log(reason);
-            })
+        ).catch(reason => {
+            alert("Product not found!")
+            console.log(reason);
+        })
     }
     const handleFieldChange = (e) => {
         if (e.target.name === "categoryName") {
@@ -46,7 +46,7 @@ export const EditProduct = () => {
                 data => {
                     console.log(data);
                 }
-            ).catch( reason => {
+            ).catch(reason => {
                 alert("Delete fail!")
                 console.log(reason);
             })
@@ -61,82 +61,80 @@ export const EditProduct = () => {
                     setRating(() => getAvgRating(product));
                     console.log(data);
                 }
-            ).catch( reason => {
+            ).catch(reason => {
                 alert("Update fail!")
                 console.log(reason);
             })
         }
     }
     return (
-        <div className="remove-product">
-            <div className="container">
-                <div className="nav">
-                    <div>Pruduct number:</div>
-                    <input name="productNumber" value={productNumber} onChange={e => setProductNumber(e.target.value)}/>
-                    <button onClick={handleSearchClick}>Search</button>
-                </div>
-                <form>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Product Number:</td>
-                            <td>
-                                <input type="text" disabled={true} name="productNumber" value={product.productNumber}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product Name:</td>
-                            <td>
-                                <input type="text" name="productName" value={product.productName}
-                                       onChange={handleFieldChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product Price:</td>
-                            <td>
-                                <input type="text" name="productPrice" value={product.productPrice}
-                                       onChange={handleFieldChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product Category:</td>
-                            <td>
-                                <input type="text" disabled={true} name="categoryName" value={product.productCategoryDTO.categoryName}
-                                       onChange={handleFieldChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product Description:</td>
-                            <td>
-                                <input type="text" name="productDescription" value={product.productDescription}
-                                       onChange={handleFieldChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product quantity:</td>
-                            <td>
-                                <input type="text" name="quantity" value={product.quantity}
-                                       onChange={handleFieldChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Product Rating average:</td>
-                            <td>
-                                <input type="text" name="rating" disabled={true} value={rating}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onClick={handleUpdateClick}>Update</button>
-                            </td>
-                            <td>
-                                <button onClick={handleDeleteClick}>Delete</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
+        <div>
+            <div className="nav">
+                <div>Product number:</div>
+                <input name="productNumber" value={productNumber} onChange={e => setProductNumber(e.target.value)}/>
+                <button onClick={handleSearchClick}>Search</button>
             </div>
+            <form>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Product Number:</td>
+                        <td>
+                            <input type="text" disabled={true} name="productNumber" value={product.productNumber}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Name:</td>
+                        <td>
+                            <input type="text" name="productName" value={product.productName}
+                                   onChange={handleFieldChange}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Price:</td>
+                        <td>
+                            <input type="text" name="productPrice" value={product.productPrice}
+                                   onChange={handleFieldChange}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Category:</td>
+                        <td>
+                            <input type="text" disabled={true} name="categoryName" value={product.productCategoryDTO.categoryName}
+                                   onChange={handleFieldChange}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Description:</td>
+                        <td>
+                            <input type="text" name="productDescription" value={product.productDescription}
+                                   onChange={handleFieldChange}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product quantity:</td>
+                        <td>
+                            <input type="text" name="quantity" value={product.quantity}
+                                   onChange={handleFieldChange}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Rating average:</td>
+                        <td>
+                            <input type="text" name="rating" disabled={true} value={rating}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onClick={handleUpdateClick}>Update</button>
+                        </td>
+                        <td>
+                            <button onClick={handleDeleteClick}>Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     )
 }

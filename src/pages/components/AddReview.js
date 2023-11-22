@@ -14,15 +14,11 @@ export const AddReview = ({onAddReview}) => {
     }
     return (
         <div className="add-review">
-            <div className="container">
+            <div className="review-container">
+                <StarToRate handleSetRatingStar={handleSetRatingStar}/>
+                <textarea className="review-text" name="comment" onChange={handleFieldChange}></textarea>
                 <div>
-                    <StarToRate handleSetRatingStar={handleSetRatingStar}/>
-                </div>
-                <div>
-                    <textarea className="review-text" name="comment" onChange={handleFieldChange}></textarea>
-                </div>
-                <div>
-                    <button className="btn-comment" onClick={handleAddReview}>Add comment</button>
+                    <button className="primary-button" onClick={handleAddReview}>Add comment</button>
                 </div>
             </div>
         </div>

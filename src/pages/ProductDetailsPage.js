@@ -50,7 +50,7 @@ export const ProductDetailsPage = () => {
             <div className="product-detail-page">
                 <h1>Product details page</h1>
                 {loading || error ? (<p>Loading Product...</p>) : (
-                    <div className="container">
+                    <div className="product-detail-wrapper">
                         <div className="product-detail-item">
                             <ProductDetail productItem={productItem} onAddToCart={handleAddToCart}/>
                         </div>

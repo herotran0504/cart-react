@@ -1,24 +1,16 @@
-.App {
-    text-align: center;
-}
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+body {
+    background: #F5F5F5;
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+li, select {
+    min-height: 36px;
 }
 
-.App-link {
-    color: #61dafb;
+.cover-large {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .cover-medium {
@@ -35,11 +27,80 @@
     border-radius: 8px;
 }
 
-.cover-tiny {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
+.product-detail-item,
+.product-detail {
+    width: 100%;
+}
+
+.category-frame {
+    margin: 32px;
+    align-items: center;
+}
+
+.product-detail-container,
+.remove-product,
+.add-product,
+.search-page,
+.product-detail-page,
+.category-frame-container {
+    width: fit-content;
+    margin: 0 auto;
     border-radius: 8px;
+}
+
+.product-detail-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.product-detail-review {
+    margin-top: 24px;
+    width: 100%;
+}
+
+.product-detail-wrapper,
+.product-container,
+.container {
+    padding: 4px;
+    background: #fff;
+    width: fit-content;
+    display: flex;
+    border: solid 1px #ccc;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.add-review {
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 8px;
+    align-content: center;
+}
+
+.review-container {
+    margin-top: 12px;
+    margin-bottom: 23px;
+    background: #FFFFFF;
+    padding: 12px 24px 12px 24px;
+    width: fit-content;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-wrapper {
+    width: 800px;
+}
+
+.category-container {
+    background: #fff;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 16px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 button {
@@ -66,20 +127,12 @@ button:disabled {
     cursor: not-allowed;
 }
 
-.title {
-    text-align: center;
-    font-feature-settings: "clig" off, "liga" off;
-    align-self: center;
-    margin-top: 36px;
-    white-space: nowrap;
-    font: 500 24px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
-}
 .title-left {
     text-align: left;
-    color: #0b8ba6;
+    color: #000;
     align-self: center;
     font-feature-settings: "clig" off, "liga" off;
-    margin-left: 36px;
+    margin-left: 20px;
     white-space: nowrap;
     font: 500 24px/18px Roboto, -apple-system, Roboto, Helvetica, sans-serif;
 }
@@ -96,6 +149,7 @@ button:disabled {
 }
 
 .page-card {
+    background: #FFFFFF;
     padding: 12px 24px 12px 24px;
     width: fit-content;
     border-radius: 8px;

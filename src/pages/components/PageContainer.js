@@ -7,7 +7,7 @@ export const PageContainer = ({title, component}) => {
         return <div className="page-container">
             <div className="page-content">
                 <div className="page-card">
-                    <h2>{title}</h2>
+                    <h1>{title}</h1>
                     {component}
                 </div>
             </div>
