@@ -25,7 +25,7 @@ const OrderDetails = () => {
     const onUpdateStatus = () => {
         if (!isDelivered(order.orderStatus)) {
             OrderService.updateOrderStatus(order.orderId)
-                .then(data => setOrder(data))
+                .then(() => fetchOrderDetails())
                 .catch(e => alert(e));
         }
     }

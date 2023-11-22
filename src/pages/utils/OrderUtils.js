@@ -7,9 +7,9 @@ export const getAction = status => {
     } else if ("SHIPPED" === s) {
         return "To Deliver"
     } else if ("DELIVERED" === s) {
-        return "N/A"
+        return "Done"
     } else {
-        return "N/A"
+        return "Done"
     }
 }
 

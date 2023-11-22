@@ -16,7 +16,6 @@ const CartService = {
     addCartItem: async (productNumber) => {
         try {
             const res = await (axios.post(`${BASE_URL}/api/carts`, {productNumber: productNumber}));
-            console.log(res.data);
             return res.data;
         } catch (error) {
             console.error('Error getting cart:', error);

@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import OrderService from "../../services/OrderService";
 import {useDispatch} from "react-redux";
 import {clearCartRequest} from "../../store/actions/CartActions";
+import '../../styles/form.css';
 
 export const PaymentInformation = () => {
     const dispatch = useDispatch();
@@ -32,7 +33,6 @@ export const PaymentInformation = () => {
 
     const checkout = async () => {
         try {
-            console.log("user::" + JSON.stringify(user));
             const res = await OrderService.checkout(cartId, user);
             dispatch(clearCartRequest())
             navigate("/order-confirmation", {state: {orderId: res.orderId}});
@@ -64,82 +64,84 @@ export const PaymentInformation = () => {
             <p>Street: {userInfo.street}</p>
             <p>City: {userInfo.city}</p>
             <p>Zip: {userInfo.zip}</p>
-            <table>
-                <tbody>
-                <tr>
-                    <td>Card Number</td>
-                    <td>
-                        <input
-                            name="cardNumber"
-                            minLength="16"
-                            type="text"
-                            {...register("card", {
-                                required: "card is required.",
-                                minLength: {
-                                    value: 16,
-                                    message: "Card should be at-least 16 characters."
-                                }
-                            })}
-                            required/>
-                        {errors.card && (<p className="errorMsg">{errors.card.message}</p>)}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Credit card type</td>
-                    <td>
+
+            <div>
+                <label className="form-label">Card Number</label>
+                <input
+                    name="cardNumber"
+                    minLength="16"
+                    type="text"
+                    {...register("card", {
+                        required: "card is required.",
+                        minLength: {
+                            value: 16,
+                            message: "Card should be at-least 16 characters."
+                        }
+                    })}
+                    required/>
+                {errors.card && (<p className="errorMsg">{errors.card.message}</p>)}
+            </div>
+            <div>
+                <label className="form-label">Credit card type</label>
+                <div style={{display: 'flex'}}>
+                    <div className="wrapper-class">
+                        <label htmlFor="creditCardType">Visa</label>
                         <input
                             type="radio"
-                            name="creditCartType"
+                            name="creditCardType"
                             value="Visa"
-                            checked={user.creditCartType === "Visa"}
+                            checked={user.creditCardType === 'Visa'}
                             onChange={handleFieldChange}
-                            required/>Visa
+                            required
+                        />
+                    </div>
+                    <div className="wrapper-class">
+                        <label htmlFor="creditCardType">Mastercard</label>
                         <input
                             type="radio"
-                            name="creditCartType"
+                            name="creditCardType"
                             value="Mastercard"
-                            checked={user.creditCartType === "Mastercard"}
+                            checked={user.creditCardType === 'Mastercard'}
                             onChange={handleFieldChange}
-                        />Mastercard
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Expire Date</td>
-                    <td>
-                        <input
-                            name="date"
-                            minLength="5"
-                            maxLength="5"
-                            placeholder="MM-YY"
-                            type="text"
-                            {...register("date", {
-                                required: "date is required."
-                            })}
-                            required/>
-                        {errors.date && (<p className="errorMsg">{errors.date.message}</p>)}
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>CVV</td>
-                    <td>
-                        <input
-                            name="cvv"
-                            type="text"
-                            {...register("cvv", {
-                                required: "cvv is required.",
-                                minLength: {
-                                    value: 3,
-                                    message: "cvv should be at-least 3 digits."
-                                }
-                            })}
                         />
-                        {errors.cvv && (<p className="errorMsg">{errors.cvv.message}</p>)}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label className="form-label">Expire Date</label>
+                <input
+                    name="date"
+                    minLength="5"
+                    maxLength="5"
+                    placeholder="MM-YY"
+                    type="text"
+                    {...register("date", {
+                        required: "date is required.",
+                        pattern: {
+                            value: /^(0[1-9]|1[0-2])-(\d{2})$/,
+                            message: 'Invalid MM-YY format',
+                        }
+                    })}
+                    required/>
+                {errors.date && (<p className="errorMsg">{errors.date.message}</p>)}
+            </div>
+
+            <div>
+                <label className="form-label">CVV</label>
+                <input
+                    name="cvv"
+                    type="text"
+                    {...register("cvv", {
+                        required: "cvv is required.",
+                        minLength: {
+                            value: 3,
+                            message: "cvv should be at-least 3 digits."
+                        }
+                    })}
+                />
+                {errors.cvv && (<p className="errorMsg">{errors.cvv.message}</p>)}
+            </div>
             <br/>
             <div className="primary-actions">
                 <div className="primary-content"/>
