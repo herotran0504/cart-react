@@ -25,8 +25,8 @@ const Header = ({onPageChange}) => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li>
-                        <div onClick={toggleCategoriesMenu}>
-                            <span className="header-menu" style={{cursor: 'pointer'}}>Categories</span>
+                        <div className="toggle-menu" onClick={toggleCategoriesMenu}>
+                            <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Categories</span>
                             {isCategoriesMenuOpen && (
                                 <ul className="submenu">
                                     <Link to="/categories/books">Books</Link>
@@ -40,8 +40,8 @@ const Header = ({onPageChange}) => {
                     </li>
                     <li><Link to="/search">Search</Link></li>
                     <li>
-                        <div onClick={toggleProductsMenu}>
-                            <span className="header-menu" style={{cursor: 'pointer'}}>Products</span>
+                        <div className="toggle-menu" onClick={toggleProductsMenu}>
+                            <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Products</span>
                             {isProductsMenuOpen && (
                                 <ul className="submenu">
                                     <Link to="/addProduct">Add product</Link>

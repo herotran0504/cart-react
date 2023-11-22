@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import ProductFrame from "./ProductFrame";
-import {fetchProductByCategory} from "../../store/actions/ProductActions";
 import {ProductService} from "../../services/ProductService";
 
 const NUMBER_OF_ITEM = 4;
@@ -67,7 +65,10 @@ const CategoryFrame = ({categoryName}) => {
     return (
         <div className="category-frame">
             <div className="category-frame-container">
-                <h3>{categoryName}</h3>
+                <div className="title-left">
+                    <h3>{categoryName}</h3>
+                </div>
+
                 {loading && <p>Loading Product...</p>}
                 {error && <p>Error: {error}</p>}
                 {!isFine ? (<p>Loading Product...</p>) :(<ProductFrame itemList={spitProducts} onPrevious={handlePreviousClick} onNext={handleNextCLick}/>)}

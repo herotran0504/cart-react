@@ -1,5 +1,6 @@
 import RatingStar from "./RatingStar";
 import {getAvgRating} from "../utils/ProductUltils";
+import "../../styles/productdetail.css"
 
 const ProductDetail = ({productItem, onAddToCart}) => {
 

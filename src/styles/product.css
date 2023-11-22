@@ -10,6 +10,15 @@
     border-radius: 8px;
     overflow: hidden;
 }
+.container-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
 .star{
     justify-content: flex-start;
     align-items: flex-start;

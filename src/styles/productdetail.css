@@ -1,0 +1,12 @@
+.list-detail-vertical {
+    list-style-type: none;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+.list-detail-horizon {
+    list-style-type: none;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}

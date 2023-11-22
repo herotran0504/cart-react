@@ -30,7 +30,8 @@ const Product = ({productItem}) => {
                         <RatingStar rating={rating}/>
                     </div>
                     <div>{productItem.productPrice}</div>
-                    <div>In stock: {productItem.quantity}</div>
+                    {productItem.quantity ? <span style={{color: "blue"}}>In Stock</span> : <span style={{color: "red"}}>Out of Stock</span>}
+                    {/*<div>In stock: {productItem.quantity}</div>*/}
                     <div>
                         <button onClick={handleAddToCart} disabled={productItem.quantity=== 0}>Add to Cart</button>
                     </div>

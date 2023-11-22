@@ -4,8 +4,8 @@ import "../../styles/productframe.css"
 const ProductFrame = ({itemList, onPrevious, onNext}) => {
     // console.log(itemList);
     return (
-        <div className="product-frame">
-            <ul className="list-items">
+        <div className="container">
+            <ul className="list-items-horizon">
                 <li key={0}>
                     <button onClick={onPrevious}>&lt;</button>
                 </li>

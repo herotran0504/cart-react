@@ -8,7 +8,7 @@ const ReviewFrame = ({reviewList, onAddReview}) => {
                 <div>
                     <ReviewList reviewList={reviewList}/>
                 </div>
-                <div>
+                <div className="add-review">
                     <AddReview onAddReview={onAddReview}/>
                 </div>
             </div>
