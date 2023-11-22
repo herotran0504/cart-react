@@ -31,7 +31,7 @@ export const PaymentInformation = () => {
         setUser({...user, [e.target.name]: e.target.value});
     }
 
-    const checkout = async () => {
+    const checkout = async (user) => {
         try {
             const res = await OrderService.checkout(cartId, user);
             dispatch(clearCartRequest())
@@ -42,7 +42,7 @@ export const PaymentInformation = () => {
     }
 
     const handleSubmitCall = async (data) => {
-        setUser({
+        const newUser = {
             name: user.name,
             email: user.email,
             phone: user.phone,
@@ -53,8 +53,9 @@ export const PaymentInformation = () => {
             creditCartType: user.creditCartType,
             date: data.date,
             cvv: data.cvv,
-        });
-        await checkout()
+        };
+        setUser(newUser);
+        await checkout(newUser)
     }
     return (
         <form onSubmit={handleSubmit(handleSubmitCall)}>
@@ -71,15 +72,15 @@ export const PaymentInformation = () => {
                     name="cardNumber"
                     minLength="16"
                     type="text"
-                    {...register("card", {
-                        required: "card is required.",
+                    {...register("cardNumber", {
+                        required: "cardNumber is required.",
                         minLength: {
                             value: 16,
                             message: "Card should be at-least 16 characters."
                         }
                     })}
                     required/>
-                {errors.card && (<p className="errorMsg">{errors.card.message}</p>)}
+                {errors.cardNumber && (<p className="errorMsg">{errors.cardNumber.message}</p>)}
             </div>
             <div>
                 <label className="form-label">Credit card type</label>

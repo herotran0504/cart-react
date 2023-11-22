@@ -33,6 +33,17 @@ const Header = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li>
+                        <div className="toggle-menu" onClick={toggleProductsMenu}>
+                            <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Admin</span>
+                            {isProductsMenuOpen && (
+                                <ul className="submenu">
+                                    <Link to="/addProduct">Add product</Link>
+                                    <Link to="/editProduct">Edit product</Link>
+                                </ul>
+                            )}
+                        </div>
+                    </li>
+                    <li>
                         <div className="toggle-menu" onClick={toggleCategoriesMenu}>
                             <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Categories</span>
                             {isCategoriesMenuOpen && (
@@ -47,17 +58,6 @@ const Header = () => {
                         </div>
                     </li>
                     <li><Link to="/search">Search</Link></li>
-                    <li>
-                        <div className="toggle-menu" onClick={toggleProductsMenu}>
-                            <span className="toggle-menu-header" style={{cursor: 'pointer'}}>Products</span>
-                            {isProductsMenuOpen && (
-                                <ul className="submenu">
-                                    <Link to="/addProduct">Add product</Link>
-                                    <Link to="/editProduct">Edit product</Link>
-                                </ul>
-                            )}
-                        </div>
-                    </li>
                     <li><Link to="/carts">Cart {countCartItems() > 0 ?
                         <span className="cart-counter">{countCartItems()}</span> : ''}</Link></li>
                     <li><Link to="/orders">Orders</Link></li>
