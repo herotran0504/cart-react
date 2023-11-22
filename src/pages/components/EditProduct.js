@@ -45,6 +45,7 @@ export const EditProduct = () => {
             ProductService.deleteProduct(product.productNumber).then(
                 data => {
                     console.log(data);
+                    alert("delete success!")
                 }
             ).catch(reason => {
                 alert("Delete fail!")
@@ -59,6 +60,7 @@ export const EditProduct = () => {
                 data => {
                     setProduct(data);
                     setRating(() => getAvgRating(product));
+                    alert("Update success!")
                     console.log(data);
                 }
             ).catch(reason => {
