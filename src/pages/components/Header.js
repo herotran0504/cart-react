@@ -3,12 +3,18 @@ import {Link} from 'react-router-dom';
 import '../../styles/Header.css';
 import {useSelector} from "react-redux";
 
-const Header = ({onPageChange}) => {
+const Header = () => {
     const {cart} = useSelector(state => state.cart);
-    const cartItems = cart.items;
+
     const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
     const [isCategoriesMenuOpen, setIsCategoriesMenuOpen] = useState(false);
 
+    const countCartItems = () => {
+        if (cart && cart.items && cart.items.length > 0) {
+            return cart.items.map(i => i.quantity).reduce((i1, i2) => i1 + i2);
+        }
+        return 0;
+    }
     const toggleProductsMenu = () => {
         setIsProductsMenuOpen(!isProductsMenuOpen);
     };
@@ -50,8 +56,8 @@ const Header = ({onPageChange}) => {
                             )}
                         </div>
                     </li>
-                    <li><Link to="/carts">Cart {cartItems && cartItems.length > 0 ?
-                        <span className="cart-counter">{cartItems.length}</span> : ''}</Link></li>
+                    <li><Link to="/carts">Cart {countCartItems() > 0 ?
+                        <span className="cart-counter">{countCartItems()}</span> : ''}</Link></li>
                     <li><Link to="/orders">Orders</Link></li>
                     <li><Link to="#">About Us</Link></li>
                     <li><Link to="#">Contact Us</Link></li>

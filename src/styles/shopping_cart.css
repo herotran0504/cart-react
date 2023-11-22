@@ -45,6 +45,7 @@
 .cart-quantity-container {
     width: 100%;
     height: 32px;
+    justify-items: center;
     text-align: center;
     align-items: center;
 }
@@ -52,4 +53,16 @@
 .cart-items-quantity {
     display: inline-block;
     min-width: 24px;
+}
+
+.cart-quantity-btn {
+    color: #fff;
+    padding: 10px 14px;
+    opacity: 100%;
+    border-radius: 4px;
+    background-color: #0b8ba6;
+}
+
+.cart-quantity-btn:hover {
+    opacity: 90%;
 }
